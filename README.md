@@ -169,66 +169,66 @@ Best performance occurs when temporal alignment is preserved across imagery, cli
 ## UI Previews
 
 <p align="center">
-  <img src="app/assets/overview.png" width="400">
+  <img src="app/assets/Overview.png" width="900">
 </p>
 
 <p align="center">
-  <img src="app/assets/predictions.png" width="400">
+  <img src="app/assets/Environmental.png" width="900">
 </p>
 
 <p align="center">
-  <img src="app/assets/exports.png" width="400">
+  <img src="app/assets/Predictions.png" width="900">
 </p>
 
 <p align="center">
-  <img src="app/assets/fieldnotes.png" width="400">
+  <img src="app/assets/FieldNotes.png" width="900">
 </p>
 
 <p align="center">
-  <img src="app/assets/environmental-drivers.png" width="400">
+  <img src="app/assets/Export.png" width="900">
 </p>
 
 ---
 
-## 🧭 Roadmap
+## Contributing
 
-• Early-warning notifications  
-• Automatic ingestion of ERA5 and Sentinel-2  
-• Release of baseline ML models  
-• Soil-water balance integration  
-• Cloud deployment  
-• Mobile beta release  
+Contributions are welcome and appreciated.  
+To maintain clarity and consistency, please follow the guidelines below.
 
+### How to contribute
+1. Fork the repository to your GitHub account.  
+2. Create a dedicated branch for your contribution.  
+3. Commit changes with clear and informative messages.  
+4. Submit a pull request for review.
+
+### Contribution principles
+• Ensure that your work is aligned with the project’s direction.  
+• Maintain clean and readable code.  
+• Include documentation updates when relevant.  
+• Provide context for any significant change.
+
+### Review process
+Pull requests are reviewed to ensure correctness, coherence and compatibility with the existing architecture.  
+Approved contributions are merged into the main branch.
+
+Thank you for supporting the development of this application.
 ---
 
-## 🤝 Contributing
+## Contact
 
-Contributions are welcome.  
-To contribute:  
-1. Fork the repository.  
-2. Create a feature branch.  
-3. Commit with descriptive messages.  
-4. Open a pull request.
-
----
-
-## 📝 License
-
-MIT License.  
-A full license statement should be added in a LICENSE file.
-
----
-
-## 📬 Contact
-
-Fernanda Chácara  
-Instituto Superior de Agronomia — Lisbon, Portugal  
+<p align="center">
+Fernanda Chácara<br>
+Dandara França<br>
+Catarina Silva<br>
+Instituto Superior de Agronomia — Lisbon, Portugal
+</p>
 
 ---
 
 <p align="center">
 <strong>Empowering smarter irrigation decisions through spatial, predictive insight.</strong>
 </p>
+
 
 
 
