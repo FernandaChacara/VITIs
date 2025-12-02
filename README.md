@@ -1,152 +1,131 @@
-# VITIs — Predictive Water-Stress Monitoring System for Mediterranean Vineyards
-
-VITIs is a desktop-first application (with a simplified mobile version) designed to monitor and predict intra-parcel water stress in Mediterranean vineyards. It integrates multispectral imagery, meteorological data, phenology, and ground-based observations into a unified workflow capable of generating 3–7-day water-stress forecasts.
-
----
-
-## 📌 Overview
-
-The system operationalizes a scientific framework grounded in Environmental Data Science, precision viticulture, and DIKW-style conceptual models.  
-It converts heterogeneous observations into validated evidence and actionable indicators for sustainable irrigation management.
-
-This repository contains:
-- the analytical workflow  
-- modelling scripts  
-- the VITIs desktop/mobile interface  
-- documentation and methodological report  
-
----
-
-## 📱 Application Preview (GIFs)
-
-### **Mobile Interface**
 <p align="center">
-  <img src="app/assets/iphone-coin-spin.gif" width="300">
+  <img src="app/assets/hero-vitis.png" width="160">
 </p>
 
----
+# VITIs: Predictive Water-Stress Monitoring for Mediterranean Vineyards 🍇💧
 
-### **Desktop Interface**
+VITIs is a cutting-edge project designed to predict water stress in Mediterranean vineyards. By integrating multisource environmental data, applying advanced machine learning techniques, and providing intuitive visualizations, VITIs empowers vineyard managers to make informed decisions about irrigation and resource allocation. This project aims to improve vineyard sustainability, optimize water usage, and enhance crop yields.
+
 <p align="center">
-  <img src="app/assets/simple-macbook-pro-m3-14-inch.gif" width="700">
+  <img src="app/assets/simple-macbook-pro-m3-14-inch.gif" width="850">
 </p>
 
----
+## 🚀 Key Features
 
-## ⭐ Key Features
+- **Water-Stress Prediction:** Utilizes supervised ML models to predict water stress levels based on environmental data.
+- **Spatial Visualization:** Provides spatial maps of predicted water stress, allowing for targeted intervention.
+- **Atmospheric Data Integration:** Incorporates data from Sentinel-2 imagery, ERA5 meteorological data, and local weather stations.
+- **Phenological Alignment:** Aligns data with grapevine phenology using BBCH stages for accurate predictions.
+- **Interactive Dashboard:** Offers a user-friendly interface for exploring data and model outputs.
+- **Ground-Truth Annotation:** Enables users to annotate data with field scouting observations to improve model accuracy.
+- **Mobile and Desktop Interfaces:** Accessible on both mobile and desktop platforms for convenient monitoring.
 
-- Short-term (3–7 days) water-stress prediction using supervised ML models  
-- Spatial visualization of intra-parcel variability (NDVI, NDRE, red-edge indices)  
-- Integration of atmospheric demand indicators (VPD, GDD, temperature, humidity)  
-- Phenological alignment using BBCH stages  
-- Interactive dashboard with maps, charts and contextual tooltips  
-- Desktop interface for full analysis + simplified mobile interface for field use  
-- Ground-truth annotation and iterative model improvement  
+## 🛠️ Tech Stack
 
----
+- **Frontend:**
+    - *Technology not specified in provided files, but likely uses a framework like React, Angular, or Vue.js*
+- **Backend:**
+    - *Technology not specified in provided files, but likely uses Python (Flask or Django), Node.js, or similar.*
+- **Data Sources:**
+    - Sentinel-2 imagery
+    - ERA5 meteorological data
+    - Meteorological stations
+    - Field scouting data
+    - Soil and topography data
+- **Machine Learning:**
+    - Supervised ML models (e.g., scikit-learn, TensorFlow, PyTorch)
+- **Data Processing:**
+    - Python (with libraries like pandas, numpy, rasterio, GDAL)
+- **Other:**
+    - BBCH stages (phenological scale)
 
-## 🔬 Scientific Foundation
+## 📦 Getting Started
 
-The modelling pipeline is inspired by Environmental Data Science principles:
+### Prerequisites
 
-- **Multisource integration** (Sentinel-2, ERA5, meteorological stations, field scouting, soil and topography)  
-- **Semantic harmonization** and temporal synchronization  
-- **Feature engineering** consistent with Mediterranean vine physiology  
-- **Conversion of DATA → EVIDENCE → KNOWLEDGE**, following DIKW-inspired reasoning  
+- Python 3.7+
+- pip package manager
 
----
+### Installation
 
-## 🧠 Methodological Workflow
+```bash
+git clone <repository_url>
+cd <repository_directory>
+pip install -r requirements.txt
+```
 
-### **1. Preprocessing**
-- Atmospheric correction & cloud masking  
-- Temporal alignment (imagery × weather × phenology)  
-- Spatial harmonization (soil, DEM, topography)  
-- Noise filtering, interpolation, gap-filling  
-- Engineered features: NDVI, NDRE, VPD windows, cumulative GDD, rainfall indices  
+Populate `requirements.txt` with dependencies such as:
 
-### **2. Modelling**
-Algorithms:
-- Random Forest  
-- Gradient Boosting  
+```
+numpy
+pandas
+scikit-learn
+rasterio
+geopandas
+```
 
-Validation strategy:
-- Temporal cross-validation  
-- Spatial block cross-validation  
+### Running Locally
 
-### **3. Outputs**
-- Pixel-level water-stress predictions (3–7 days)  
-- Georeferenced maps & exportable tables  
-- Integrated dashboard visualization  
+```bash
+python main.py
+```
 
----
+or
 
-## 📁 Repository Structure
+```bash
+flask run
+```
 
+## 💻 Usage
 
+The VITIs application provides a user-friendly interface for monitoring water stress in vineyards.
+
+1. **Access the Dashboard:** Open the application in your browser or mobile device.
+2. **Explore Spatial Maps:** Visualize predicted water stress levels.
+3. **Analyze Data:** Explore atmospheric drivers, vegetation indices, and trends.
+4. **Annotate Data:** Add field observations to refine predictions.
+5. **Make Decisions:** Apply insights from predictions to improve irrigation strategies.
+
+## 📂 Project Structure
+
+```
 VITIs/
-│
-├── data/
-│ ├── raw/
-│ ├── processed/
-│ └── features/
-│
-├── modelling/
-│ ├── notebooks/
-│ ├── models/
-│ └── evaluation/
-│
+├── README.md
+├── requirements.txt
 ├── app/
-│ ├── desktop/
-│ ├── mobile/
-│ └── assets/
-│
-└── docs/
-├── methodology/
-└── report.pdf
+│   ├── assets/
+│   ├── desktop/
+│   ├── mobile/
+├── models/
+├── data/
+├── documentation/
+└── ...
+```
+
+## 📸 Screenshots
+
+(Add static screenshots here if desired.)
+
+## 🤝 Contributing
+
+1. Fork the repository  
+2. Create a new branch  
+3. Commit changes  
+4. Submit a pull request  
+
+## 📝 License
+
+Specify license (e.g., MIT License)
+
+## 📬 Contact
+
+Fernanda Chácara  
+Instituto Superior de Agronomia — Lisboa, Portugal  
+
+## 💖 Thanks
+
+Thank you for your interest in the VITIs project! We hope this documentation helps you understand and utilize the system effectively.
 
 
----
-
-## 🎯 Target Users
-
-- Vineyard technicians and irrigation managers  
-- Precision-viticulture consultants  
-- Sustainability teams  
-- Researchers and students in agro-environmental data science  
-
----
-
-## ⚠️ Current Limitations
-
-- Limited temporal frequency of ground-truth water-status measurements  
-- Sentinel-2 resolution insufficient for fine-scale canopy variability  
-- Dependence on accurate phenology (BBCH staging)  
-- Digital literacy variability among end-users  
-
----
-
-## 🚀 Future Work
-
-- Deep-learning models for extended prediction horizons  
-- IoT integration (soil moisture, canopy thermography)  
-- Irrigation optimization algorithms  
-- Cloud-based multi-parcel management interface  
-- Real-time alerts (SMS/Telegram)  
-
----
-
-## 👩‍💻 Authors
-
-- **Fernanda Chácara**  
-- **Dandara França**  
-- **Catarina Silva**
-
-Developed under the UC **Fundamentals of Agro-Environmental Data Science (ISA/ULisboa)**.
-
----
-
-## 📄 License
-MIT License.
 
 
