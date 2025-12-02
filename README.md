@@ -1,35 +1,88 @@
-# **VITIs — Predictive Water-Stress Monitoring System for Mediterranean Vineyards**
+# VITIs — Predictive Water-Stress Monitoring System for Mediterranean Vineyards
 
-## **Overview**
-VITIs is a desktop-first application (with a simplified mobile version) designed to monitor and predict **intra-parcel water stress** in Mediterranean vineyards. It integrates multispectral, meteorological, phenological, and field-based observations into a harmonized analytical workflow capable of delivering **3–7-day stress forecasts** and spatially explicit decision-support outputs.
-
-The system operationalizes the scientific and methodological framework presented in *Sustainable Water Management in Mediterranean Vineyards* :contentReference[oaicite:0]{index=0}, translating an academic data-science workflow into a functional tool for sustainable irrigation management.
+VITIs is a desktop-first application (with a simplified mobile version) designed to monitor and predict intra-parcel water stress in Mediterranean vineyards. It integrates multispectral imagery, meteorological data, phenology, and ground-based observations into a unified workflow capable of generating 3–7-day water-stress forecasts.
 
 ---
 
-## **Key Features**
-- Short-term (3–7 days) prediction of water stress using supervised ML models  
-- Spatial visualization of intra-parcel variability (NDVI/NDRE)  
+## 📌 Overview
+
+The system operationalizes a scientific framework grounded in Environmental Data Science, precision viticulture, and DIKW-style conceptual models.  
+It converts heterogeneous observations into validated evidence and actionable indicators for sustainable irrigation management.
+
+This repository contains:
+- the analytical workflow  
+- modelling scripts  
+- the VITIs desktop/mobile interface  
+- documentation and methodological report  
+
+---
+
+## 📱 Application Preview (GIFs)
+
+### **Mobile Interface**
+<p align="center">
+  <img src="app/assets/iphone-coin-spin.gif" width="300">
+</p>
+
+---
+
+### **Desktop Interface**
+<p align="center">
+  <img src="app/assets/simple-macbook-pro-m3-14-inch.gif" width="700">
+</p>
+
+---
+
+## ⭐ Key Features
+
+- Short-term (3–7 days) water-stress prediction using supervised ML models  
+- Spatial visualization of intra-parcel variability (NDVI, NDRE, red-edge indices)  
 - Integration of atmospheric demand indicators (VPD, GDD, temperature, humidity)  
 - Phenological alignment using BBCH stages  
-- Interactive dashboard with maps, temporal charts, variable explanations  
-- Full desktop application + simplified mobile version for in-field use  
-- Support for ground-truth annotation and iterative model improvement  
+- Interactive dashboard with maps, charts and contextual tooltips  
+- Desktop interface for full analysis + simplified mobile interface for field use  
+- Ground-truth annotation and iterative model improvement  
 
 ---
 
-## **Scientific and Conceptual Basis**
-The project applies principles from Environmental Data Science and DIKW-oriented frameworks, emphasizing:
+## 🔬 Scientific Foundation
 
-- Multisource integration (Sentinel-2, weather stations/ERA5, scouting, soil, topography)  
-- Semantic harmonization and temporal synchronization of heterogeneous datasets  
-- Emphasis on interpretability and physiological coherence under Mediterranean conditions  
-- Structuring results from raw data → validated evidence → actionable knowledge  
-:contentReference[oaicite:1]{index=1}
+The modelling pipeline is inspired by Environmental Data Science principles:
+
+- **Multisource integration** (Sentinel-2, ERA5, meteorological stations, field scouting, soil and topography)  
+- **Semantic harmonization** and temporal synchronization  
+- **Feature engineering** consistent with Mediterranean vine physiology  
+- **Conversion of DATA → EVIDENCE → KNOWLEDGE**, following DIKW-inspired reasoning  
 
 ---
 
-## **Project Structure**
+## 🧠 Methodological Workflow
+
+### **1. Preprocessing**
+- Atmospheric correction & cloud masking  
+- Temporal alignment (imagery × weather × phenology)  
+- Spatial harmonization (soil, DEM, topography)  
+- Noise filtering, interpolation, gap-filling  
+- Engineered features: NDVI, NDRE, VPD windows, cumulative GDD, rainfall indices  
+
+### **2. Modelling**
+Algorithms:
+- Random Forest  
+- Gradient Boosting  
+
+Validation strategy:
+- Temporal cross-validation  
+- Spatial block cross-validation  
+
+### **3. Outputs**
+- Pixel-level water-stress predictions (3–7 days)  
+- Georeferenced maps & exportable tables  
+- Integrated dashboard visualization  
+
+---
+
+## 📁 Repository Structure
+
 
 VITIs/
 │
@@ -52,97 +105,48 @@ VITIs/
 ├── methodology/
 └── report.pdf
 
----
-
-## **Data Sources**
-- **Sentinel-2 imagery:** NDVI, NDRE, red-edge vegetation indices  
-- **Meteorological data:** temperature, humidity, precipitation, VPD, GDD  
-- **Phenological information:** BBCH stages  
-- **Field scouting:** canopy symptoms, soil surface conditions, manual observations  
-- **Soil & topography:** texture, OM, depth, slope  
-
-These sources follow the preprocessing strategy documented in the project report.  
-:contentReference[oaicite:2]{index=2}
 
 ---
 
-## **Methodological Workflow**
+## 🎯 Target Users
 
-### **1. Pre-Processing**
-- Atmospheric correction and cloud masking  
-- Temporal synchronization of imagery, weather data, and phenology  
-- Spatial harmonization with soil/topography layers  
-- Noise filtering, gap-filling, and imputation  
-- Feature engineering: NDVI/NDRE, cumulative GDD, VPD windows, rainfall indicators  
-
-### **2. Modelling**
-- Supervised learning using **Random Forest** and **Gradient Boosting**, selected for:
-  - Robustness to heterogeneous environmental datasets  
-  - High interpretability  
-  - Good performance with medium-sized spatiotemporal data  
-- Temporal and spatial cross-validation to ensure generalizability  
-
-### **3. Prediction & Output Generation**
-- Pixel-level stress prediction for short-term horizons  
-- Export of georeferenced maps and tabular outputs  
-- Integration into the application dashboard  
-
----
-
-## **Application Design**
-
-### **Desktop Interface**
-- Interactive map viewer  
-- Filters for date, phenological stage, and variable  
-- Temporal charts linking predicted stress to NDVI/NDRE, VPD, GDD  
-- Explanatory components and tooltips  
-- Export of reports and annotated maps  
-
-### **Mobile Interface**
-- Simplified map and indicator view  
-- Quick access to stress alerts  
-- Field notes and photo annotation support  
-
----
-
-## **Target Users**
-- Vineyard technicians  
-- Irrigation and production managers  
+- Vineyard technicians and irrigation managers  
 - Precision-viticulture consultants  
-- Sustainability officers  
-- Researchers in agri-environmental data science  
+- Sustainability teams  
+- Researchers and students in agro-environmental data science  
 
 ---
 
-## **Limitations**
-Acknowledged in the report:  
-:contentReference[oaicite:3]{index=3}  
+## ⚠️ Current Limitations
+
 - Limited temporal frequency of ground-truth water-status measurements  
-- Sentinel-2 spatial resolution may not capture fine-scale variability  
-- Dependence on accurate phenological alignment  
-- Variability in digital literacy among end users  
+- Sentinel-2 resolution insufficient for fine-scale canopy variability  
+- Dependence on accurate phenology (BBCH staging)  
+- Digital literacy variability among end-users  
 
 ---
 
-## **Future Development**
-- Deep learning for enhanced temporal forecasting  
-- Integration with IoT sensors (soil moisture, canopy temperature)  
-- Irrigation optimization simulations  
-- Cloud-based multi-parcel management  
-- Real-time alerting (SMS/Telegram)  
+## 🚀 Future Work
+
+- Deep-learning models for extended prediction horizons  
+- IoT integration (soil moisture, canopy thermography)  
+- Irrigation optimization algorithms  
+- Cloud-based multi-parcel management interface  
+- Real-time alerts (SMS/Telegram)  
 
 ---
 
-## **Authors**
+## 👩‍💻 Authors
+
 - **Fernanda Chácara**  
 - **Dandara França**  
-- **Catarina Silva**  
+- **Catarina Silva**
 
-Developed within the UC *Fundamentals of AgroEnvironmental Data Science (ISA)*.  
-Scientific foundations documented in the full project report.  
-:contentReference[oaicite:4]{index=4}
+Developed under the UC **Fundamentals of Agro-Environmental Data Science (ISA/ULisboa)**.
 
 ---
 
-## **License**
+## 📄 License
 MIT License.
+
+
