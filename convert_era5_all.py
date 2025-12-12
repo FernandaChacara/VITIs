@@ -2,73 +2,61 @@ import xarray as xr
 import pandas as pd
 import os
 import zipfile
+import shutil
 
 input_folder = "original_data"
 output_folder = "processed_data"
 
 os.makedirs(output_folder, exist_ok=True)
 
-def is_zip_disguised_as_nc(file_path):
-    """Checa se o arquivo .nc é na verdade um ZIP."""
-    with open(file_path, "rb") as f:
-        signature = f.read(4)
-    return signature == b"PK\x03\x04"  # assinatura ZIP
+# Criar pasta temporária GLOBAL fora de original_data
+temp_dir = "_tmp_nc_extract"
+os.makedirs(temp_dir, exist_ok=True)
 
-def extract_zip_nc(file_path, temp_dir):
-    """Extrai o conteúdo do arquivo ZIP e retorna o caminho do .nc verdadeiro."""
-    os.makedirs(temp_dir, exist_ok=True)
-    with zipfile.ZipFile(file_path, "r") as z:
-        z.extractall(temp_dir)
-        # pegar o primeiro arquivo extraído
-        for root, _, files in os.walk(temp_dir):
-            for f in files:
-                if f.endswith(".nc"):
-                    return os.path.join(root, f)
-    return None
+files = [f for f in os.listdir(input_folder) if f.endswith(".nc")]
 
-print("Procurando arquivos para converter...")
-files = sorted([f for f in os.listdir(input_folder) if f.endswith(".nc")])
-
-print(f"Encontrados {len(files)} arquivos.")
+print(f"Procurando arquivos para converter...\nEncontrados {len(files)} arquivos.\n")
 
 for f in files:
+    print(f"Processando: {f}")
+
     input_path = os.path.join(input_folder, f)
-    print(f"\nProcessando: {f}")
 
-    # 1. Checar se é um ZIP disfarçado
-    if is_zip_disguised_as_nc(input_path):
-        print(" → Arquivo é ZIP (travestido de .nc). Extraindo...")
-        temp_dir = os.path.join(input_folder, "tmp_extract")
+    # Limpar pasta temporária ANTES de extrair
+    for item in os.listdir(temp_dir):
+        os.remove(os.path.join(temp_dir, item))
 
-        real_nc_path = extract_zip_nc(input_path, temp_dir)
-
-        if real_nc_path is None:
-            print("ERRO: Nenhum .nc encontrado dentro do ZIP!")
-            continue
-
-        print(f" → Extraído: {real_nc_path}")
-        open_path = real_nc_path
-
-    else:
-        open_path = input_path
-
-    # 2. Abrir com xarray
-    print(" → Abrindo dataset com xarray...")
+    # Abrir o .nc que é ZIP
     try:
-        ds = xr.open_dataset(open_path)
-    except Exception as e:
-        print("ERRO ao abrir com xarray:", e)
+        with zipfile.ZipFile(input_path, "r") as z:
+            z.extractall(temp_dir)
+            print(f" - Extraído para: {temp_dir}")
+    except:
+        print("ERRO: arquivo não parece ZIP!")
         continue
 
-    # 3. Converter para DataFrame
-    print(" → Convertendo para DataFrame...")
+    # Achar o .nc verdadeiro dentro da pasta temporária
+    nc_inside = [x for x in os.listdir(temp_dir) if x.endswith(".nc")]
+    if not nc_inside:
+        print("ERRO: Nenhum arquivo .nc dentro do ZIP!")
+        continue
+
+    real_nc_path = os.path.join(temp_dir, nc_inside[0])
+    print(f" - Abrindo NetCDF real: {nc_inside[0]}")
+
+    # Abrir o NetCDF com engine explícito
+    ds = xr.open_dataset(real_nc_path, engine="netcdf4")
+
+    # Converter para DataFrame
     df = ds.to_dataframe().reset_index()
 
-    # 4. Salvar CSV
-    out_csv = os.path.join(output_folder, f.replace(".nc", ".csv"))
-    df.to_csv(out_csv, index=False)
+    # Criar nome final do CSV
+    csv_name = f.replace(".nc", ".csv")
+    csv_path = os.path.join(output_folder, csv_name)
 
-    print(f" ✔ CSV salvo em: {out_csv}")
+    # Salvar
+    df.to_csv(csv_path, index=False)
+    print(f" ✔ CSV salvo em: {csv_path}\n")
 
-print("\nConversão concluída!")
+print("Conversão concluída!")
 
