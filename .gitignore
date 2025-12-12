@@ -1,0 +1,25 @@
+# Ignorar dados grandes
+original_data/*
+processed_data/*
+output_graphs/*
+
+# Permitir scripts dentro de original_data
+!original_data/*.py
+!processed_data/.gitkeep
+!output_graphs/.gitkeep
+
+# Ignorar formatos pesados
+*.nc
+*.csv
+*.zip
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VSCode
+.vscode/
+
+# Virtual envs
+venv/
+.env/
