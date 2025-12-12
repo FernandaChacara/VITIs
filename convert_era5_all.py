@@ -20,7 +20,7 @@ for f in files:
     print(f"Convertendo: {f}")
 
     # Abrir dataset NetCDF
-    ds = xr.open_dataset(input_path)
+    ds = xr.open_dataset(input_path, engine="netcdf4")
     
     # Converter para DataFrame
     df = ds.to_dataframe().reset_index()
