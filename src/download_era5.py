@@ -1,9 +1,7 @@
 import cdsapi
 
-# Initialize CDS API client
 c = cdsapi.Client()
 
-# Download ERA5 data for Alentejo (April 2023)
 c.retrieve(
     'reanalysis-era5-single-levels',
     {
@@ -19,12 +17,13 @@ c.retrieve(
             'evaporation',
         ],
         'year': '2023',
-        'month': '04',
-        'day': [f'{d:02d}' for d in range(1, 31)],
+        'month': [f'{m:02d}' for m in range(1, 13)],
+        'day': [f'{d:02d}' for d in range(1, 32)],
         'time': '12:00',
-        'area': [39, -7, 38, -8],   # North, West, South, East (small box around Alentejo)
+        'area': [39, -7, 38, -8],  # Alentejo (recorte pequeno)
     },
     '../original_data/era5_alentejo.nc'
 )
 
-print("Download complete: era5_alentejo.nc saved to original_data/")
+print("ERA5 download for full year completed.")
+
