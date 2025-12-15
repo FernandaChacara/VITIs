@@ -33,7 +33,7 @@ if {"t2m", "d2m"}.issubset(df.columns):
     )
 
 # Remove non-informative / redundant columns
-df = df.drop(columns=["number", "latitude", "longitude"], errors="ignore")
+df = df.drop(columns=["number", "expver", "latitude", "longitude"], errors="ignore")
 
 # Rename columns to meaningful names
 df = df.rename(columns={
@@ -52,3 +52,4 @@ df = df.rename(columns={
 df.to_csv("../processed_data/era5_alentejo.csv", index=False)
 
 print("Clean CSV created: processed_data/era5_alentejo.csv")
+
