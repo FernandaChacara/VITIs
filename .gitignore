@@ -1,12 +1,17 @@
-# Ignorar dados grandes
+# Ignorar dados grandes (mas permitir .gitkeep)
 original_data/*
-processed_data/*
-output_graphs/*
+!original_data/.gitkeep
 
-# Permitir scripts dentro de original_data
-!original_data/*.py
+processed_data/*
 !processed_data/.gitkeep
+
+output_graphs/*
 !output_graphs/.gitkeep
+
+# Permitir scripts dentro das pastas, se algum dia quiser
+!original_data/*.py
+!processed_data/*.py
+!output_graphs/*.py
 
 # Ignorar formatos pesados
 *.nc
@@ -21,5 +26,5 @@ __pycache__/
 .vscode/
 
 # Virtual envs
+.venv/
 venv/
-.env/
