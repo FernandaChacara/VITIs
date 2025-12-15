@@ -1,30 +1,36 @@
-# Ignorar dados grandes (mas permitir .gitkeep)
-original_data/*
-!original_data/.gitkeep
-
-processed_data/*
-!processed_data/.gitkeep
-
-output_graphs/*
-!output_graphs/.gitkeep
-
-# Permitir scripts dentro das pastas, se algum dia quiser
-!original_data/*.py
-!processed_data/*.py
-!output_graphs/*.py
-
-# Ignorar formatos pesados
-*.nc
-*.csv
-*.zip
-
-# Python cache
+# Python
 __pycache__/
 *.pyc
-
-# VSCode
-.vscode/
-
-# Virtual envs
-.venv/
+*.pyo
+*.pyd
+.env
+.venv
 venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Databases / local configs
+*.db
+*.sqlite
+*.log
+
+# Temporary files
+_tmp*
+*.tmp
+*.zip
+
+# ERA5 raw downloads (keep original_data clean)
+original_data/*.nc
+
+# MySQL / MariaDB dumps (optional)
+*.sql.bak
+
