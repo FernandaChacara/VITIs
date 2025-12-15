@@ -49,6 +49,6 @@ df = df.rename(columns={
 })
 
 # Save cleaned CSV ready for database import
-df.to_csv("../processed_data/era5_alentejo_clean.csv", index=False)
+df.to_csv("../processed_data/era5_alentejo.csv", index=False)
 
-print("Clean CSV created: processed_data/era5_alentejo_clean.csv")
+print("Clean CSV created: processed_data/era5_alentejo.csv")
