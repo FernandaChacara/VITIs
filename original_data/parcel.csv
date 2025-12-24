@@ -1,0 +1,31 @@
+id,user_id,name,region,latitude,longitude,area_ha
+1,1,Herdade da Rocha,Alentejo,38.522,-7.891,10.2
+2,1,Quinta dos Barreiros,Alentejo,38.609,-7.945,8.5
+3,2,Herdade do Sobreiro,Alentejo,38.214,-8.003,12.0
+4,2,Quinta da Planície,Alentejo,38.198,-8.120,6.7
+5,3,Quinta das Oliveiras,Alentejo,38.487,-7.512,9.8
+6,4,Herdade do Vale Seco,Alentejo,38.305,-8.276,7.6
+7,5,Quinta do Serro Alto,Alentejo,38.156,-7.667,11.2
+8,6,Herdade da Fonte Fria,Alentejo,38.419,-7.980,6.9
+9,7,Quinta da Encosta Dourada,Alentejo,38.500,-7.900,15.8
+10,8,Herdade dos Ventos,Alentejo,38.530,-7.810,7.3
+11,9,Quinta do Lago Branco,Alentejo,38.570,-7.720,9.1
+12,10,Herdade das Figueiras,Alentejo,38.610,-7.830,5.4
+13,11,Quinta do Ribeiro Claro,Alentejo,38.250,-7.950,13.3
+14,12,Herdade da Terra Forte,Alentejo,38.330,-7.760,8.9
+15,13,Quinta do Pôr do Sol,Alentejo,38.450,-7.880,12.4
+16,14,Herdade da Colina Verde,Alentejo,38.520,-7.770,7.7
+17,15,Quinta do Monte Calmo,Alentejo,38.630,-7.690,10.0
+18,16,Herdade da Charneca,Alentejo,38.480,-8.050,9.5
+19,17,Quinta do Alto Cedro,Alentejo,38.390,-7.850,6.2
+20,18,Herdade do Horizonte,Alentejo,38.560,-7.940,14.1
+21,19,Quinta da Vinha Nova,Alentejo,38.210,-7.710,8.0
+22,20,Herdade da Estrela,Alentejo,38.620,-8.010,12.6
+23,3,Herdade do Carvalho Velho,Alentejo,38.460,-7.560,5.5
+24,4,Quinta da Pedra Branca,Alentejo,38.320,-7.870,6.1
+25,5,Herdade do Chaparral,Alentejo,38.515,-7.890,10.9
+26,6,Quinta do Miradouro,Alentejo,38.455,-7.765,9.2
+27,7,Herdade do Alvor,Alentejo,38.585,-7.945,8.3
+28,8,Quinta da Azinheira,Alentejo,38.295,-7.780,11.7
+29,9,Herdade do Céu Aberto,Alentejo,38.540,-7.730,6.8
+30,10,Quinta da Lezíria,Alentejo,38.590,-7.820,10.4
