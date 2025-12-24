@@ -1,0 +1,571 @@
+parcel_id,irrigation_time,volume_liters,method,notes
+1,2023-02-20 07:30:00,410,drip,Post dormancy soil moisture adjustment
+1,2023-03-15 07:30:00,510,drip,Budbreak support
+1,2023-04-05 07:30:00,660,drip,Early vegetative growth
+1,2023-04-20 07:30:00,690,drip,Early vegetative growth
+1,2023-05-05 07:30:00,920,drip,Canopy expansion
+1,2023-05-20 07:30:00,970,drip,Canopy expansion
+1,2023-06-05 06:30:00,1230,drip,Pre flowering irrigation
+1,2023-06-15 06:30:00,1330,drip,Pre flowering irrigation
+1,2023-06-25 06:30:00,1430,drip,Pre flowering irrigation
+1,2023-07-05 06:30:00,1640,drip,Heat stress mitigation
+1,2023-07-10 06:30:00,1690,drip,Heat stress mitigation
+1,2023-07-15 06:30:00,1740,drip,Heat stress mitigation
+1,2023-07-25 06:30:00,1790,drip,Heat stress mitigation
+1,2023-08-05 06:30:00,1430,drip,Post veraison water control
+1,2023-08-15 06:30:00,1380,drip,Post veraison water control
+1,2023-08-25 06:30:00,1330,drip,Post veraison water control
+1,2023-09-05 07:00:00,820,drip,Reduced irrigation before harvest
+1,2023-09-20 07:00:00,770,drip,Reduced irrigation before harvest
+1,2023-10-10 08:00:00,510,drip,Post harvest soil recovery
+2,2023-02-20 07:30:00,420,drip,Post dormancy soil moisture adjustment
+2,2023-03-15 07:30:00,520,drip,Budbreak support
+2,2023-04-05 07:30:00,670,drip,Early vegetative growth
+2,2023-04-20 07:30:00,700,drip,Early vegetative growth
+2,2023-05-05 07:30:00,940,drip,Canopy expansion
+2,2023-05-20 07:30:00,990,drip,Canopy expansion
+2,2023-06-05 06:30:00,1260,drip,Pre flowering irrigation
+2,2023-06-15 06:30:00,1360,drip,Pre flowering irrigation
+2,2023-06-25 06:30:00,1460,drip,Pre flowering irrigation
+2,2023-07-05 06:30:00,1680,drip,Heat stress mitigation
+2,2023-07-10 06:30:00,1730,drip,Heat stress mitigation
+2,2023-07-15 06:30:00,1780,drip,Heat stress mitigation
+2,2023-07-25 06:30:00,1830,drip,Heat stress mitigation
+2,2023-08-05 06:30:00,1460,drip,Post veraison water control
+2,2023-08-15 06:30:00,1410,drip,Post veraison water control
+2,2023-08-25 06:30:00,1360,drip,Post veraison water control
+2,2023-09-05 07:00:00,840,drip,Reduced irrigation before harvest
+2,2023-09-20 07:00:00,790,drip,Reduced irrigation before harvest
+2,2023-10-10 08:00:00,520,drip,Post harvest soil recovery
+3,2023-02-20 07:30:00,430,drip,Post dormancy soil moisture adjustment
+3,2023-03-15 07:30:00,530,drip,Budbreak support
+3,2023-04-05 07:30:00,680,drip,Early vegetative growth
+3,2023-04-20 07:30:00,710,drip,Early vegetative growth
+3,2023-05-05 07:30:00,960,drip,Canopy expansion
+3,2023-05-20 07:30:00,1010,drip,Canopy expansion
+3,2023-06-05 06:30:00,1290,drip,Pre flowering irrigation
+3,2023-06-15 06:30:00,1390,drip,Pre flowering irrigation
+3,2023-06-25 06:30:00,1490,drip,Pre flowering irrigation
+3,2023-07-05 06:30:00,1720,drip,Heat stress mitigation
+3,2023-07-10 06:30:00,1770,drip,Heat stress mitigation
+3,2023-07-15 06:30:00,1820,drip,Heat stress mitigation
+3,2023-07-25 06:30:00,1870,drip,Heat stress mitigation
+3,2023-08-05 06:30:00,1490,drip,Post veraison water control
+3,2023-08-15 06:30:00,1440,drip,Post veraison water control
+3,2023-08-25 06:30:00,1390,drip,Post veraison water control
+3,2023-09-05 07:00:00,860,drip,Reduced irrigation before harvest
+3,2023-09-20 07:00:00,810,drip,Reduced irrigation before harvest
+3,2023-10-10 08:00:00,530,drip,Post harvest soil recovery
+4,2023-02-20 07:30:00,440,drip,Post dormancy soil moisture adjustment
+4,2023-03-15 07:30:00,540,drip,Budbreak support
+4,2023-04-05 07:30:00,690,drip,Early vegetative growth
+4,2023-04-20 07:30:00,720,drip,Early vegetative growth
+4,2023-05-05 07:30:00,980,drip,Canopy expansion
+4,2023-05-20 07:30:00,1030,drip,Canopy expansion
+4,2023-06-05 06:30:00,1320,drip,Pre flowering irrigation
+4,2023-06-15 06:30:00,1420,drip,Pre flowering irrigation
+4,2023-06-25 06:30:00,1520,drip,Pre flowering irrigation
+4,2023-07-05 06:30:00,1760,drip,Heat stress mitigation
+4,2023-07-10 06:30:00,1810,drip,Heat stress mitigation
+4,2023-07-15 06:30:00,1860,drip,Heat stress mitigation
+4,2023-07-25 06:30:00,1910,drip,Heat stress mitigation
+4,2023-08-05 06:30:00,1520,drip,Post veraison water control
+4,2023-08-15 06:30:00,1470,drip,Post veraison water control
+4,2023-08-25 06:30:00,1420,drip,Post veraison water control
+4,2023-09-05 07:00:00,880,drip,Reduced irrigation before harvest
+4,2023-09-20 07:00:00,830,drip,Reduced irrigation before harvest
+4,2023-10-10 08:00:00,540,drip,Post harvest soil recovery
+5,2023-02-20 07:30:00,400,drip,Post dormancy soil moisture adjustment
+5,2023-03-15 07:30:00,500,drip,Budbreak support
+5,2023-04-05 07:30:00,650,drip,Early vegetative growth
+5,2023-04-20 07:30:00,680,drip,Early vegetative growth
+5,2023-05-05 07:30:00,900,drip,Canopy expansion
+5,2023-05-20 07:30:00,950,drip,Canopy expansion
+5,2023-06-05 06:30:00,1200,drip,Pre flowering irrigation
+5,2023-06-15 06:30:00,1300,drip,Pre flowering irrigation
+5,2023-06-25 06:30:00,1400,drip,Pre flowering irrigation
+5,2023-07-05 06:30:00,1600,drip,Heat stress mitigation
+5,2023-07-10 06:30:00,1650,drip,Heat stress mitigation
+5,2023-07-15 06:30:00,1700,drip,Heat stress mitigation
+5,2023-07-25 06:30:00,1750,drip,Heat stress mitigation
+5,2023-08-05 06:30:00,1400,drip,Post veraison water control
+5,2023-08-15 06:30:00,1350,drip,Post veraison water control
+5,2023-08-25 06:30:00,1300,drip,Post veraison water control
+5,2023-09-05 07:00:00,800,drip,Reduced irrigation before harvest
+5,2023-09-20 07:00:00,750,drip,Reduced irrigation before harvest
+5,2023-10-10 08:00:00,500,drip,Post harvest soil recovery
+6,2023-02-20 07:30:00,410,drip,Post dormancy soil moisture adjustment
+6,2023-03-15 07:30:00,510,drip,Budbreak support
+6,2023-04-05 07:30:00,660,drip,Early vegetative growth
+6,2023-04-20 07:30:00,690,drip,Early vegetative growth
+6,2023-05-05 07:30:00,920,drip,Canopy expansion
+6,2023-05-20 07:30:00,970,drip,Canopy expansion
+6,2023-06-05 06:30:00,1230,drip,Pre flowering irrigation
+6,2023-06-15 06:30:00,1330,drip,Pre flowering irrigation
+6,2023-06-25 06:30:00,1430,drip,Pre flowering irrigation
+6,2023-07-05 06:30:00,1640,drip,Heat stress mitigation
+6,2023-07-10 06:30:00,1690,drip,Heat stress mitigation
+6,2023-07-15 06:30:00,1740,drip,Heat stress mitigation
+6,2023-07-25 06:30:00,1790,drip,Heat stress mitigation
+6,2023-08-05 06:30:00,1430,drip,Post veraison water control
+6,2023-08-15 06:30:00,1380,drip,Post veraison water control
+6,2023-08-25 06:30:00,1330,drip,Post veraison water control
+6,2023-09-05 07:00:00,820,drip,Reduced irrigation before harvest
+6,2023-09-20 07:00:00,770,drip,Reduced irrigation before harvest
+6,2023-10-10 08:00:00,510,drip,Post harvest soil recovery
+7,2023-02-20 07:30:00,420,drip,Post dormancy soil moisture adjustment
+7,2023-03-15 07:30:00,520,drip,Budbreak support
+7,2023-04-05 07:30:00,670,drip,Early vegetative growth
+7,2023-04-20 07:30:00,700,drip,Early vegetative growth
+7,2023-05-05 07:30:00,940,drip,Canopy expansion
+7,2023-05-20 07:30:00,990,drip,Canopy expansion
+7,2023-06-05 06:30:00,1260,drip,Pre flowering irrigation
+7,2023-06-15 06:30:00,1360,drip,Pre flowering irrigation
+7,2023-06-25 06:30:00,1460,drip,Pre flowering irrigation
+7,2023-07-05 06:30:00,1680,drip,Heat stress mitigation
+7,2023-07-10 06:30:00,1730,drip,Heat stress mitigation
+7,2023-07-15 06:30:00,1780,drip,Heat stress mitigation
+7,2023-07-25 06:30:00,1830,drip,Heat stress mitigation
+7,2023-08-05 06:30:00,1460,drip,Post veraison water control
+7,2023-08-15 06:30:00,1410,drip,Post veraison water control
+7,2023-08-25 06:30:00,1360,drip,Post veraison water control
+7,2023-09-05 07:00:00,840,drip,Reduced irrigation before harvest
+7,2023-09-20 07:00:00,790,drip,Reduced irrigation before harvest
+7,2023-10-10 08:00:00,520,drip,Post harvest soil recovery
+8,2023-02-20 07:30:00,430,drip,Post dormancy soil moisture adjustment
+8,2023-03-15 07:30:00,530,drip,Budbreak support
+8,2023-04-05 07:30:00,680,drip,Early vegetative growth
+8,2023-04-20 07:30:00,710,drip,Early vegetative growth
+8,2023-05-05 07:30:00,960,drip,Canopy expansion
+8,2023-05-20 07:30:00,1010,drip,Canopy expansion
+8,2023-06-05 06:30:00,1290,drip,Pre flowering irrigation
+8,2023-06-15 06:30:00,1390,drip,Pre flowering irrigation
+8,2023-06-25 06:30:00,1490,drip,Pre flowering irrigation
+8,2023-07-05 06:30:00,1720,drip,Heat stress mitigation
+8,2023-07-10 06:30:00,1770,drip,Heat stress mitigation
+8,2023-07-15 06:30:00,1820,drip,Heat stress mitigation
+8,2023-07-25 06:30:00,1870,drip,Heat stress mitigation
+8,2023-08-05 06:30:00,1490,drip,Post veraison water control
+8,2023-08-15 06:30:00,1440,drip,Post veraison water control
+8,2023-08-25 06:30:00,1390,drip,Post veraison water control
+8,2023-09-05 07:00:00,860,drip,Reduced irrigation before harvest
+8,2023-09-20 07:00:00,810,drip,Reduced irrigation before harvest
+8,2023-10-10 08:00:00,530,drip,Post harvest soil recovery
+9,2023-02-20 07:30:00,440,drip,Post dormancy soil moisture adjustment
+9,2023-03-15 07:30:00,540,drip,Budbreak support
+9,2023-04-05 07:30:00,690,drip,Early vegetative growth
+9,2023-04-20 07:30:00,720,drip,Early vegetative growth
+9,2023-05-05 07:30:00,980,drip,Canopy expansion
+9,2023-05-20 07:30:00,1030,drip,Canopy expansion
+9,2023-06-05 06:30:00,1320,drip,Pre flowering irrigation
+9,2023-06-15 06:30:00,1420,drip,Pre flowering irrigation
+9,2023-06-25 06:30:00,1520,drip,Pre flowering irrigation
+9,2023-07-05 06:30:00,1760,drip,Heat stress mitigation
+9,2023-07-10 06:30:00,1810,drip,Heat stress mitigation
+9,2023-07-15 06:30:00,1860,drip,Heat stress mitigation
+9,2023-07-25 06:30:00,1910,drip,Heat stress mitigation
+9,2023-08-05 06:30:00,1520,drip,Post veraison water control
+9,2023-08-15 06:30:00,1470,drip,Post veraison water control
+9,2023-08-25 06:30:00,1420,drip,Post veraison water control
+9,2023-09-05 07:00:00,880,drip,Reduced irrigation before harvest
+9,2023-09-20 07:00:00,830,drip,Reduced irrigation before harvest
+9,2023-10-10 08:00:00,540,drip,Post harvest soil recovery
+10,2023-02-20 07:30:00,400,drip,Post dormancy soil moisture adjustment
+10,2023-03-15 07:30:00,500,drip,Budbreak support
+10,2023-04-05 07:30:00,650,drip,Early vegetative growth
+10,2023-04-20 07:30:00,680,drip,Early vegetative growth
+10,2023-05-05 07:30:00,900,drip,Canopy expansion
+10,2023-05-20 07:30:00,950,drip,Canopy expansion
+10,2023-06-05 06:30:00,1200,drip,Pre flowering irrigation
+10,2023-06-15 06:30:00,1300,drip,Pre flowering irrigation
+10,2023-06-25 06:30:00,1400,drip,Pre flowering irrigation
+10,2023-07-05 06:30:00,1600,drip,Heat stress mitigation
+10,2023-07-10 06:30:00,1650,drip,Heat stress mitigation
+10,2023-07-15 06:30:00,1700,drip,Heat stress mitigation
+10,2023-07-25 06:30:00,1750,drip,Heat stress mitigation
+10,2023-08-05 06:30:00,1400,drip,Post veraison water control
+10,2023-08-15 06:30:00,1350,drip,Post veraison water control
+10,2023-08-25 06:30:00,1300,drip,Post veraison water control
+10,2023-09-05 07:00:00,800,drip,Reduced irrigation before harvest
+10,2023-09-20 07:00:00,750,drip,Reduced irrigation before harvest
+10,2023-10-10 08:00:00,500,drip,Post harvest soil recovery
+11,2023-02-20 07:30:00,410,drip,Post dormancy soil moisture adjustment
+11,2023-03-15 07:30:00,510,drip,Budbreak support
+11,2023-04-05 07:30:00,660,drip,Early vegetative growth
+11,2023-04-20 07:30:00,690,drip,Early vegetative growth
+11,2023-05-05 07:30:00,920,drip,Canopy expansion
+11,2023-05-20 07:30:00,970,drip,Canopy expansion
+11,2023-06-05 06:30:00,1230,drip,Pre flowering irrigation
+11,2023-06-15 06:30:00,1330,drip,Pre flowering irrigation
+11,2023-06-25 06:30:00,1430,drip,Pre flowering irrigation
+11,2023-07-05 06:30:00,1640,drip,Heat stress mitigation
+11,2023-07-10 06:30:00,1690,drip,Heat stress mitigation
+11,2023-07-15 06:30:00,1740,drip,Heat stress mitigation
+11,2023-07-25 06:30:00,1790,drip,Heat stress mitigation
+11,2023-08-05 06:30:00,1430,drip,Post veraison water control
+11,2023-08-15 06:30:00,1380,drip,Post veraison water control
+11,2023-08-25 06:30:00,1330,drip,Post veraison water control
+11,2023-09-05 07:00:00,820,drip,Reduced irrigation before harvest
+11,2023-09-20 07:00:00,770,drip,Reduced irrigation before harvest
+11,2023-10-10 08:00:00,510,drip,Post harvest soil recovery
+12,2023-02-20 07:30:00,420,drip,Post dormancy soil moisture adjustment
+12,2023-03-15 07:30:00,520,drip,Budbreak support
+12,2023-04-05 07:30:00,670,drip,Early vegetative growth
+12,2023-04-20 07:30:00,700,drip,Early vegetative growth
+12,2023-05-05 07:30:00,940,drip,Canopy expansion
+12,2023-05-20 07:30:00,990,drip,Canopy expansion
+12,2023-06-05 06:30:00,1260,drip,Pre flowering irrigation
+12,2023-06-15 06:30:00,1360,drip,Pre flowering irrigation
+12,2023-06-25 06:30:00,1460,drip,Pre flowering irrigation
+12,2023-07-05 06:30:00,1680,drip,Heat stress mitigation
+12,2023-07-10 06:30:00,1730,drip,Heat stress mitigation
+12,2023-07-15 06:30:00,1780,drip,Heat stress mitigation
+12,2023-07-25 06:30:00,1830,drip,Heat stress mitigation
+12,2023-08-05 06:30:00,1460,drip,Post veraison water control
+12,2023-08-15 06:30:00,1410,drip,Post veraison water control
+12,2023-08-25 06:30:00,1360,drip,Post veraison water control
+12,2023-09-05 07:00:00,840,drip,Reduced irrigation before harvest
+12,2023-09-20 07:00:00,790,drip,Reduced irrigation before harvest
+12,2023-10-10 08:00:00,520,drip,Post harvest soil recovery
+13,2023-02-20 07:30:00,430,drip,Post dormancy soil moisture adjustment
+13,2023-03-15 07:30:00,530,drip,Budbreak support
+13,2023-04-05 07:30:00,680,drip,Early vegetative growth
+13,2023-04-20 07:30:00,710,drip,Early vegetative growth
+13,2023-05-05 07:30:00,960,drip,Canopy expansion
+13,2023-05-20 07:30:00,1010,drip,Canopy expansion
+13,2023-06-05 06:30:00,1290,drip,Pre flowering irrigation
+13,2023-06-15 06:30:00,1390,drip,Pre flowering irrigation
+13,2023-06-25 06:30:00,1490,drip,Pre flowering irrigation
+13,2023-07-05 06:30:00,1720,drip,Heat stress mitigation
+13,2023-07-10 06:30:00,1770,drip,Heat stress mitigation
+13,2023-07-15 06:30:00,1820,drip,Heat stress mitigation
+13,2023-07-25 06:30:00,1870,drip,Heat stress mitigation
+13,2023-08-05 06:30:00,1490,drip,Post veraison water control
+13,2023-08-15 06:30:00,1440,drip,Post veraison water control
+13,2023-08-25 06:30:00,1390,drip,Post veraison water control
+13,2023-09-05 07:00:00,860,drip,Reduced irrigation before harvest
+13,2023-09-20 07:00:00,810,drip,Reduced irrigation before harvest
+13,2023-10-10 08:00:00,530,drip,Post harvest soil recovery
+14,2023-02-20 07:30:00,440,drip,Post dormancy soil moisture adjustment
+14,2023-03-15 07:30:00,540,drip,Budbreak support
+14,2023-04-05 07:30:00,690,drip,Early vegetative growth
+14,2023-04-20 07:30:00,720,drip,Early vegetative growth
+14,2023-05-05 07:30:00,980,drip,Canopy expansion
+14,2023-05-20 07:30:00,1030,drip,Canopy expansion
+14,2023-06-05 06:30:00,1320,drip,Pre flowering irrigation
+14,2023-06-15 06:30:00,1420,drip,Pre flowering irrigation
+14,2023-06-25 06:30:00,1520,drip,Pre flowering irrigation
+14,2023-07-05 06:30:00,1760,drip,Heat stress mitigation
+14,2023-07-10 06:30:00,1810,drip,Heat stress mitigation
+14,2023-07-15 06:30:00,1860,drip,Heat stress mitigation
+14,2023-07-25 06:30:00,1910,drip,Heat stress mitigation
+14,2023-08-05 06:30:00,1520,drip,Post veraison water control
+14,2023-08-15 06:30:00,1470,drip,Post veraison water control
+14,2023-08-25 06:30:00,1420,drip,Post veraison water control
+14,2023-09-05 07:00:00,880,drip,Reduced irrigation before harvest
+14,2023-09-20 07:00:00,830,drip,Reduced irrigation before harvest
+14,2023-10-10 08:00:00,540,drip,Post harvest soil recovery
+15,2023-02-20 07:30:00,400,drip,Post dormancy soil moisture adjustment
+15,2023-03-15 07:30:00,500,drip,Budbreak support
+15,2023-04-05 07:30:00,650,drip,Early vegetative growth
+15,2023-04-20 07:30:00,680,drip,Early vegetative growth
+15,2023-05-05 07:30:00,900,drip,Canopy expansion
+15,2023-05-20 07:30:00,950,drip,Canopy expansion
+15,2023-06-05 06:30:00,1200,drip,Pre flowering irrigation
+15,2023-06-15 06:30:00,1300,drip,Pre flowering irrigation
+15,2023-06-25 06:30:00,1400,drip,Pre flowering irrigation
+15,2023-07-05 06:30:00,1600,drip,Heat stress mitigation
+15,2023-07-10 06:30:00,1650,drip,Heat stress mitigation
+15,2023-07-15 06:30:00,1700,drip,Heat stress mitigation
+15,2023-07-25 06:30:00,1750,drip,Heat stress mitigation
+15,2023-08-05 06:30:00,1400,drip,Post veraison water control
+15,2023-08-15 06:30:00,1350,drip,Post veraison water control
+15,2023-08-25 06:30:00,1300,drip,Post veraison water control
+15,2023-09-05 07:00:00,800,drip,Reduced irrigation before harvest
+15,2023-09-20 07:00:00,750,drip,Reduced irrigation before harvest
+15,2023-10-10 08:00:00,500,drip,Post harvest soil recovery
+16,2023-02-20 07:30:00,410,drip,Post dormancy soil moisture adjustment
+16,2023-03-15 07:30:00,510,drip,Budbreak support
+16,2023-04-05 07:30:00,660,drip,Early vegetative growth
+16,2023-04-20 07:30:00,690,drip,Early vegetative growth
+16,2023-05-05 07:30:00,920,drip,Canopy expansion
+16,2023-05-20 07:30:00,970,drip,Canopy expansion
+16,2023-06-05 06:30:00,1230,drip,Pre flowering irrigation
+16,2023-06-15 06:30:00,1330,drip,Pre flowering irrigation
+16,2023-06-25 06:30:00,1430,drip,Pre flowering irrigation
+16,2023-07-05 06:30:00,1640,drip,Heat stress mitigation
+16,2023-07-10 06:30:00,1690,drip,Heat stress mitigation
+16,2023-07-15 06:30:00,1740,drip,Heat stress mitigation
+16,2023-07-25 06:30:00,1790,drip,Heat stress mitigation
+16,2023-08-05 06:30:00,1430,drip,Post veraison water control
+16,2023-08-15 06:30:00,1380,drip,Post veraison water control
+16,2023-08-25 06:30:00,1330,drip,Post veraison water control
+16,2023-09-05 07:00:00,820,drip,Reduced irrigation before harvest
+16,2023-09-20 07:00:00,770,drip,Reduced irrigation before harvest
+16,2023-10-10 08:00:00,510,drip,Post harvest soil recovery
+17,2023-02-20 07:30:00,420,drip,Post dormancy soil moisture adjustment
+17,2023-03-15 07:30:00,520,drip,Budbreak support
+17,2023-04-05 07:30:00,670,drip,Early vegetative growth
+17,2023-04-20 07:30:00,700,drip,Early vegetative growth
+17,2023-05-05 07:30:00,940,drip,Canopy expansion
+17,2023-05-20 07:30:00,990,drip,Canopy expansion
+17,2023-06-05 06:30:00,1260,drip,Pre flowering irrigation
+17,2023-06-15 06:30:00,1360,drip,Pre flowering irrigation
+17,2023-06-25 06:30:00,1460,drip,Pre flowering irrigation
+17,2023-07-05 06:30:00,1680,drip,Heat stress mitigation
+17,2023-07-10 06:30:00,1730,drip,Heat stress mitigation
+17,2023-07-15 06:30:00,1780,drip,Heat stress mitigation
+17,2023-07-25 06:30:00,1830,drip,Heat stress mitigation
+17,2023-08-05 06:30:00,1460,drip,Post veraison water control
+17,2023-08-15 06:30:00,1410,drip,Post veraison water control
+17,2023-08-25 06:30:00,1360,drip,Post veraison water control
+17,2023-09-05 07:00:00,840,drip,Reduced irrigation before harvest
+17,2023-09-20 07:00:00,790,drip,Reduced irrigation before harvest
+17,2023-10-10 08:00:00,520,drip,Post harvest soil recovery
+18,2023-02-20 07:30:00,430,drip,Post dormancy soil moisture adjustment
+18,2023-03-15 07:30:00,530,drip,Budbreak support
+18,2023-04-05 07:30:00,680,drip,Early vegetative growth
+18,2023-04-20 07:30:00,710,drip,Early vegetative growth
+18,2023-05-05 07:30:00,960,drip,Canopy expansion
+18,2023-05-20 07:30:00,1010,drip,Canopy expansion
+18,2023-06-05 06:30:00,1290,drip,Pre flowering irrigation
+18,2023-06-15 06:30:00,1390,drip,Pre flowering irrigation
+18,2023-06-25 06:30:00,1490,drip,Pre flowering irrigation
+18,2023-07-05 06:30:00,1720,drip,Heat stress mitigation
+18,2023-07-10 06:30:00,1770,drip,Heat stress mitigation
+18,2023-07-15 06:30:00,1820,drip,Heat stress mitigation
+18,2023-07-25 06:30:00,1870,drip,Heat stress mitigation
+18,2023-08-05 06:30:00,1490,drip,Post veraison water control
+18,2023-08-15 06:30:00,1440,drip,Post veraison water control
+18,2023-08-25 06:30:00,1390,drip,Post veraison water control
+18,2023-09-05 07:00:00,860,drip,Reduced irrigation before harvest
+18,2023-09-20 07:00:00,810,drip,Reduced irrigation before harvest
+18,2023-10-10 08:00:00,530,drip,Post harvest soil recovery
+19,2023-02-20 07:30:00,440,drip,Post dormancy soil moisture adjustment
+19,2023-03-15 07:30:00,540,drip,Budbreak support
+19,2023-04-05 07:30:00,690,drip,Early vegetative growth
+19,2023-04-20 07:30:00,720,drip,Early vegetative growth
+19,2023-05-05 07:30:00,980,drip,Canopy expansion
+19,2023-05-20 07:30:00,1030,drip,Canopy expansion
+19,2023-06-05 06:30:00,1320,drip,Pre flowering irrigation
+19,2023-06-15 06:30:00,1420,drip,Pre flowering irrigation
+19,2023-06-25 06:30:00,1520,drip,Pre flowering irrigation
+19,2023-07-05 06:30:00,1760,drip,Heat stress mitigation
+19,2023-07-10 06:30:00,1810,drip,Heat stress mitigation
+19,2023-07-15 06:30:00,1860,drip,Heat stress mitigation
+19,2023-07-25 06:30:00,1910,drip,Heat stress mitigation
+19,2023-08-05 06:30:00,1520,drip,Post veraison water control
+19,2023-08-15 06:30:00,1470,drip,Post veraison water control
+19,2023-08-25 06:30:00,1420,drip,Post veraison water control
+19,2023-09-05 07:00:00,880,drip,Reduced irrigation before harvest
+19,2023-09-20 07:00:00,830,drip,Reduced irrigation before harvest
+19,2023-10-10 08:00:00,540,drip,Post harvest soil recovery
+20,2023-02-20 07:30:00,400,drip,Post dormancy soil moisture adjustment
+20,2023-03-15 07:30:00,500,drip,Budbreak support
+20,2023-04-05 07:30:00,650,drip,Early vegetative growth
+20,2023-04-20 07:30:00,680,drip,Early vegetative growth
+20,2023-05-05 07:30:00,900,drip,Canopy expansion
+20,2023-05-20 07:30:00,950,drip,Canopy expansion
+20,2023-06-05 06:30:00,1200,drip,Pre flowering irrigation
+20,2023-06-15 06:30:00,1300,drip,Pre flowering irrigation
+20,2023-06-25 06:30:00,1400,drip,Pre flowering irrigation
+20,2023-07-05 06:30:00,1600,drip,Heat stress mitigation
+20,2023-07-10 06:30:00,1650,drip,Heat stress mitigation
+20,2023-07-15 06:30:00,1700,drip,Heat stress mitigation
+20,2023-07-25 06:30:00,1750,drip,Heat stress mitigation
+20,2023-08-05 06:30:00,1400,drip,Post veraison water control
+20,2023-08-15 06:30:00,1350,drip,Post veraison water control
+20,2023-08-25 06:30:00,1300,drip,Post veraison water control
+20,2023-09-05 07:00:00,800,drip,Reduced irrigation before harvest
+20,2023-09-20 07:00:00,750,drip,Reduced irrigation before harvest
+20,2023-10-10 08:00:00,500,drip,Post harvest soil recovery
+21,2023-02-20 07:30:00,410,drip,Post dormancy soil moisture adjustment
+21,2023-03-15 07:30:00,510,drip,Budbreak support
+21,2023-04-05 07:30:00,660,drip,Early vegetative growth
+21,2023-04-20 07:30:00,690,drip,Early vegetative growth
+21,2023-05-05 07:30:00,920,drip,Canopy expansion
+21,2023-05-20 07:30:00,970,drip,Canopy expansion
+21,2023-06-05 06:30:00,1230,drip,Pre flowering irrigation
+21,2023-06-15 06:30:00,1330,drip,Pre flowering irrigation
+21,2023-06-25 06:30:00,1430,drip,Pre flowering irrigation
+21,2023-07-05 06:30:00,1640,drip,Heat stress mitigation
+21,2023-07-10 06:30:00,1690,drip,Heat stress mitigation
+21,2023-07-15 06:30:00,1740,drip,Heat stress mitigation
+21,2023-07-25 06:30:00,1790,drip,Heat stress mitigation
+21,2023-08-05 06:30:00,1430,drip,Post veraison water control
+21,2023-08-15 06:30:00,1380,drip,Post veraison water control
+21,2023-08-25 06:30:00,1330,drip,Post veraison water control
+21,2023-09-05 07:00:00,820,drip,Reduced irrigation before harvest
+21,2023-09-20 07:00:00,770,drip,Reduced irrigation before harvest
+21,2023-10-10 08:00:00,510,drip,Post harvest soil recovery
+22,2023-02-20 07:30:00,420,drip,Post dormancy soil moisture adjustment
+22,2023-03-15 07:30:00,520,drip,Budbreak support
+22,2023-04-05 07:30:00,670,drip,Early vegetative growth
+22,2023-04-20 07:30:00,700,drip,Early vegetative growth
+22,2023-05-05 07:30:00,940,drip,Canopy expansion
+22,2023-05-20 07:30:00,990,drip,Canopy expansion
+22,2023-06-05 06:30:00,1260,drip,Pre flowering irrigation
+22,2023-06-15 06:30:00,1360,drip,Pre flowering irrigation
+22,2023-06-25 06:30:00,1460,drip,Pre flowering irrigation
+22,2023-07-05 06:30:00,1680,drip,Heat stress mitigation
+22,2023-07-10 06:30:00,1730,drip,Heat stress mitigation
+22,2023-07-15 06:30:00,1780,drip,Heat stress mitigation
+22,2023-07-25 06:30:00,1830,drip,Heat stress mitigation
+22,2023-08-05 06:30:00,1460,drip,Post veraison water control
+22,2023-08-15 06:30:00,1410,drip,Post veraison water control
+22,2023-08-25 06:30:00,1360,drip,Post veraison water control
+22,2023-09-05 07:00:00,840,drip,Reduced irrigation before harvest
+22,2023-09-20 07:00:00,790,drip,Reduced irrigation before harvest
+22,2023-10-10 08:00:00,520,drip,Post harvest soil recovery
+23,2023-02-20 07:30:00,430,drip,Post dormancy soil moisture adjustment
+23,2023-03-15 07:30:00,530,drip,Budbreak support
+23,2023-04-05 07:30:00,680,drip,Early vegetative growth
+23,2023-04-20 07:30:00,710,drip,Early vegetative growth
+23,2023-05-05 07:30:00,960,drip,Canopy expansion
+23,2023-05-20 07:30:00,1010,drip,Canopy expansion
+23,2023-06-05 06:30:00,1290,drip,Pre flowering irrigation
+23,2023-06-15 06:30:00,1390,drip,Pre flowering irrigation
+23,2023-06-25 06:30:00,1490,drip,Pre flowering irrigation
+23,2023-07-05 06:30:00,1720,drip,Heat stress mitigation
+23,2023-07-10 06:30:00,1770,drip,Heat stress mitigation
+23,2023-07-15 06:30:00,1820,drip,Heat stress mitigation
+23,2023-07-25 06:30:00,1870,drip,Heat stress mitigation
+23,2023-08-05 06:30:00,1490,drip,Post veraison water control
+23,2023-08-15 06:30:00,1440,drip,Post veraison water control
+23,2023-08-25 06:30:00,1390,drip,Post veraison water control
+23,2023-09-05 07:00:00,860,drip,Reduced irrigation before harvest
+23,2023-09-20 07:00:00,810,drip,Reduced irrigation before harvest
+23,2023-10-10 08:00:00,530,drip,Post harvest soil recovery
+24,2023-02-20 07:30:00,440,drip,Post dormancy soil moisture adjustment
+24,2023-03-15 07:30:00,540,drip,Budbreak support
+24,2023-04-05 07:30:00,690,drip,Early vegetative growth
+24,2023-04-20 07:30:00,720,drip,Early vegetative growth
+24,2023-05-05 07:30:00,980,drip,Canopy expansion
+24,2023-05-20 07:30:00,1030,drip,Canopy expansion
+24,2023-06-05 06:30:00,1320,drip,Pre flowering irrigation
+24,2023-06-15 06:30:00,1420,drip,Pre flowering irrigation
+24,2023-06-25 06:30:00,1520,drip,Pre flowering irrigation
+24,2023-07-05 06:30:00,1760,drip,Heat stress mitigation
+24,2023-07-10 06:30:00,1810,drip,Heat stress mitigation
+24,2023-07-15 06:30:00,1860,drip,Heat stress mitigation
+24,2023-07-25 06:30:00,1910,drip,Heat stress mitigation
+24,2023-08-05 06:30:00,1520,drip,Post veraison water control
+24,2023-08-15 06:30:00,1470,drip,Post veraison water control
+24,2023-08-25 06:30:00,1420,drip,Post veraison water control
+24,2023-09-05 07:00:00,880,drip,Reduced irrigation before harvest
+24,2023-09-20 07:00:00,830,drip,Reduced irrigation before harvest
+24,2023-10-10 08:00:00,540,drip,Post harvest soil recovery
+25,2023-02-20 07:30:00,400,drip,Post dormancy soil moisture adjustment
+25,2023-03-15 07:30:00,500,drip,Budbreak support
+25,2023-04-05 07:30:00,650,drip,Early vegetative growth
+25,2023-04-20 07:30:00,680,drip,Early vegetative growth
+25,2023-05-05 07:30:00,900,drip,Canopy expansion
+25,2023-05-20 07:30:00,950,drip,Canopy expansion
+25,2023-06-05 06:30:00,1200,drip,Pre flowering irrigation
+25,2023-06-15 06:30:00,1300,drip,Pre flowering irrigation
+25,2023-06-25 06:30:00,1400,drip,Pre flowering irrigation
+25,2023-07-05 06:30:00,1600,drip,Heat stress mitigation
+25,2023-07-10 06:30:00,1650,drip,Heat stress mitigation
+25,2023-07-15 06:30:00,1700,drip,Heat stress mitigation
+25,2023-07-25 06:30:00,1750,drip,Heat stress mitigation
+25,2023-08-05 06:30:00,1400,drip,Post veraison water control
+25,2023-08-15 06:30:00,1350,drip,Post veraison water control
+25,2023-08-25 06:30:00,1300,drip,Post veraison water control
+25,2023-09-05 07:00:00,800,drip,Reduced irrigation before harvest
+25,2023-09-20 07:00:00,750,drip,Reduced irrigation before harvest
+25,2023-10-10 08:00:00,500,drip,Post harvest soil recovery
+26,2023-02-20 07:30:00,410,drip,Post dormancy soil moisture adjustment
+26,2023-03-15 07:30:00,510,drip,Budbreak support
+26,2023-04-05 07:30:00,660,drip,Early vegetative growth
+26,2023-04-20 07:30:00,690,drip,Early vegetative growth
+26,2023-05-05 07:30:00,920,drip,Canopy expansion
+26,2023-05-20 07:30:00,970,drip,Canopy expansion
+26,2023-06-05 06:30:00,1230,drip,Pre flowering irrigation
+26,2023-06-15 06:30:00,1330,drip,Pre flowering irrigation
+26,2023-06-25 06:30:00,1430,drip,Pre flowering irrigation
+26,2023-07-05 06:30:00,1640,drip,Heat stress mitigation
+26,2023-07-10 06:30:00,1690,drip,Heat stress mitigation
+26,2023-07-15 06:30:00,1740,drip,Heat stress mitigation
+26,2023-07-25 06:30:00,1790,drip,Heat stress mitigation
+26,2023-08-05 06:30:00,1430,drip,Post veraison water control
+26,2023-08-15 06:30:00,1380,drip,Post veraison water control
+26,2023-08-25 06:30:00,1330,drip,Post veraison water control
+26,2023-09-05 07:00:00,820,drip,Reduced irrigation before harvest
+26,2023-09-20 07:00:00,770,drip,Reduced irrigation before harvest
+26,2023-10-10 08:00:00,510,drip,Post harvest soil recovery
+27,2023-02-20 07:30:00,420,drip,Post dormancy soil moisture adjustment
+27,2023-03-15 07:30:00,520,drip,Budbreak support
+27,2023-04-05 07:30:00,670,drip,Early vegetative growth
+27,2023-04-20 07:30:00,700,drip,Early vegetative growth
+27,2023-05-05 07:30:00,940,drip,Canopy expansion
+27,2023-05-20 07:30:00,990,drip,Canopy expansion
+27,2023-06-05 06:30:00,1260,drip,Pre flowering irrigation
+27,2023-06-15 06:30:00,1360,drip,Pre flowering irrigation
+27,2023-06-25 06:30:00,1460,drip,Pre flowering irrigation
+27,2023-07-05 06:30:00,1680,drip,Heat stress mitigation
+27,2023-07-10 06:30:00,1730,drip,Heat stress mitigation
+27,2023-07-15 06:30:00,1780,drip,Heat stress mitigation
+27,2023-07-25 06:30:00,1830,drip,Heat stress mitigation
+27,2023-08-05 06:30:00,1460,drip,Post veraison water control
+27,2023-08-15 06:30:00,1410,drip,Post veraison water control
+27,2023-08-25 06:30:00,1360,drip,Post veraison water control
+27,2023-09-05 07:00:00,840,drip,Reduced irrigation before harvest
+27,2023-09-20 07:00:00,790,drip,Reduced irrigation before harvest
+27,2023-10-10 08:00:00,520,drip,Post harvest soil recovery
+28,2023-02-20 07:30:00,430,drip,Post dormancy soil moisture adjustment
+28,2023-03-15 07:30:00,530,drip,Budbreak support
+28,2023-04-05 07:30:00,680,drip,Early vegetative growth
+28,2023-04-20 07:30:00,710,drip,Early vegetative growth
+28,2023-05-05 07:30:00,960,drip,Canopy expansion
+28,2023-05-20 07:30:00,1010,drip,Canopy expansion
+28,2023-06-05 06:30:00,1290,drip,Pre flowering irrigation
+28,2023-06-15 06:30:00,1390,drip,Pre flowering irrigation
+28,2023-06-25 06:30:00,1490,drip,Pre flowering irrigation
+28,2023-07-05 06:30:00,1720,drip,Heat stress mitigation
+28,2023-07-10 06:30:00,1770,drip,Heat stress mitigation
+28,2023-07-15 06:30:00,1820,drip,Heat stress mitigation
+28,2023-07-25 06:30:00,1870,drip,Heat stress mitigation
+28,2023-08-05 06:30:00,1490,drip,Post veraison water control
+28,2023-08-15 06:30:00,1440,drip,Post veraison water control
+28,2023-08-25 06:30:00,1390,drip,Post veraison water control
+28,2023-09-05 07:00:00,860,drip,Reduced irrigation before harvest
+28,2023-09-20 07:00:00,810,drip,Reduced irrigation before harvest
+28,2023-10-10 08:00:00,530,drip,Post harvest soil recovery
+29,2023-02-20 07:30:00,440,drip,Post dormancy soil moisture adjustment
+29,2023-03-15 07:30:00,540,drip,Budbreak support
+29,2023-04-05 07:30:00,690,drip,Early vegetative growth
+29,2023-04-20 07:30:00,720,drip,Early vegetative growth
+29,2023-05-05 07:30:00,980,drip,Canopy expansion
+29,2023-05-20 07:30:00,1030,drip,Canopy expansion
+29,2023-06-05 06:30:00,1320,drip,Pre flowering irrigation
+29,2023-06-15 06:30:00,1420,drip,Pre flowering irrigation
+29,2023-06-25 06:30:00,1520,drip,Pre flowering irrigation
+29,2023-07-05 06:30:00,1760,drip,Heat stress mitigation
+29,2023-07-10 06:30:00,1810,drip,Heat stress mitigation
+29,2023-07-15 06:30:00,1860,drip,Heat stress mitigation
+29,2023-07-25 06:30:00,1910,drip,Heat stress mitigation
+29,2023-08-05 06:30:00,1520,drip,Post veraison water control
+29,2023-08-15 06:30:00,1470,drip,Post veraison water control
+29,2023-08-25 06:30:00,1420,drip,Post veraison water control
+29,2023-09-05 07:00:00,880,drip,Reduced irrigation before harvest
+29,2023-09-20 07:00:00,830,drip,Reduced irrigation before harvest
+29,2023-10-10 08:00:00,540,drip,Post harvest soil recovery
+30,2023-02-20 07:30:00,400,drip,Post dormancy soil moisture adjustment
+30,2023-03-15 07:30:00,500,drip,Budbreak support
+30,2023-04-05 07:30:00,650,drip,Early vegetative growth
+30,2023-04-20 07:30:00,680,drip,Early vegetative growth
+30,2023-05-05 07:30:00,900,drip,Canopy expansion
+30,2023-05-20 07:30:00,950,drip,Canopy expansion
+30,2023-06-05 06:30:00,1200,drip,Pre flowering irrigation
+30,2023-06-15 06:30:00,1300,drip,Pre flowering irrigation
+30,2023-06-25 06:30:00,1400,drip,Pre flowering irrigation
+30,2023-07-05 06:30:00,1600,drip,Heat stress mitigation
+30,2023-07-10 06:30:00,1650,drip,Heat stress mitigation
+30,2023-07-15 06:30:00,1700,drip,Heat stress mitigation
+30,2023-07-25 06:30:00,1750,drip,Heat stress mitigation
+30,2023-08-05 06:30:00,1400,drip,Post veraison water control
+30,2023-08-15 06:30:00,1350,drip,Post veraison water control
+30,2023-08-25 06:30:00,1300,drip,Post veraison water control
+30,2023-09-05 07:00:00,800,drip,Reduced irrigation before harvest
+30,2023-09-20 07:00:00,750,drip,Reduced irrigation before harvest
+30,2023-10-10 08:00:00,500,drip,Post harvest soil recovery

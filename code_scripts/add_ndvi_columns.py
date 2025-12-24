@@ -1,22 +1,19 @@
 import pandas as pd
 
-# Load the NDVI CSV from processed data (original was too heavy to version)
 df = pd.read_csv("../processed_data/ndvi_alentejo_2023.csv")
+parcels = pd.read_csv("../original_data/parcel.csv")
+sources = pd.read_csv("../original_data/data_source.csv")
 
-# Create a sequential unique ID column for PRIMARY KEY
 df.insert(0, "id", range(1, len(df) + 1))
 
-# Add parcel_id column (temporary placeholder, ensures import works)
-df["parcel_id"] = 1
+parcel_ids = parcels["id"].tolist()
+df["parcel_id"] = (parcel_ids * ((len(df) // len(parcel_ids)) + 1))[:len(df)]
 
-# Add source_id column (Copernicus NDVI has id=2 in the DB)
-df["source_id"] = 2
+copernicus_source_id = sources.loc[sources["name"].str.contains("Copernicus", case=False), "id"].values[0]
+df["source_id"] = copernicus_source_id
 
-# Convert date column into MariaDB DATETIME format
-df["observation_time"] = pd.to_datetime(df["date"])
+df["observation_date"] = pd.to_datetime(df["date"]).dt.date
 
-# Remove old date column to match DB field names
-df = df.drop(columns=["date"])
+df = df.drop(columns=["date"])  # APENAS UMA VEZ
 
-# Save the new file ready for database import
-df.to_csv("../processed_data/ndvi_structured.csv", index=False)
+df.to_csv("../processed_data/ndvi_alentejo_2023_structured.csv", index=False)
