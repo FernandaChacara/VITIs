@@ -19,4 +19,4 @@ df["observation_time"] = pd.to_datetime(df["date"])
 df = df.drop(columns=["date"])
 
 # Save the new file ready for database import
-df.to_csv("../processed_data/ndvi_ready.csv", index=False)
+df.to_csv("../processed_data/ndvi_structured.csv", index=False)
