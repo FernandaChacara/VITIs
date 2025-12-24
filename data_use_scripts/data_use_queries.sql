@@ -154,6 +154,54 @@ JOIN weather_observation w
 GROUP BY v.parcel_id
 ORDER BY v.parcel_id;
 
+/* =========================================================
+   Populate analysis_result table
+   Derived vegetation vigor and stress indicators
+   ========================================================= */
+
+/* Optional cleanup to avoid duplicates if script is re-run */
+DELETE FROM analysis_result;
+
+/* Insert derived analysis results */
+INSERT INTO analysis_result (
+    parcel_id,
+    observation_time,
+    vigor_class,
+    stress_flag,
+    notes
+)
+SELECT
+    parcel_id,
+    observation_date,
+    CASE
+        WHEN ndvi_mean < 0.4 THEN 'Low vigor'
+        WHEN ndvi_mean BETWEEN 0.4 AND 0.6 THEN 'Moderate vigor'
+        ELSE 'High vigor'
+    END AS vigor_class,
+    ndvi_mean < 0.4 AS stress_flag,
+    'Derived from NDVI threshold-based analysis'
+FROM vegetation_index;
+
+/* =========================================================
+   Verification of analysis_result population
+   ========================================================= */
+
+SELECT
+    vigor_class,
+    COUNT(*) AS records
+FROM analysis_result
+GROUP BY vigor_class;
+
+/* View all records created in analysis_result */
+SELECT
+    id,
+    parcel_id,
+    observation_time,
+    vigor_class,
+    stress_flag,
+    notes
+FROM analysis_result
+ORDER BY parcel_id, observation_time;
 
 /* =========================================================
    End of data use queries
