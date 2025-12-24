@@ -1,5 +1,5 @@
-name,provider,licence
-Copernicus NDVI,European Commission,Open Access
-SoilGrids,ISRIC,Open Database Licence
-ERA5 Weather,ECMWF,CDS Licence
-Field Records,Project Team,Internal Records
+id,name,provider,licence
+1,Copernicus NDVI,European Commission,Open Access
+2,SoilGrids,ISRIC,ODbL
+3,ERA5 Weather,ECMWF,CDS Licence
+4,Field Records,Project Team,Internal Records
