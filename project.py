@@ -40,77 +40,109 @@ def load_ndvi_data():
     file_path = Path("processed_data/ndvi_alentejo_2023_structured.csv")
     if not file_path.exists():
         raise FileNotFoundError("NDVI processed file not found.")
-    return pd.read_csv(file_path)
+
+    df = pd.read_csv(file_path)
+
+    df["observation_date"] = pd.to_datetime(df["observation_date"], errors="coerce")
+    df["ndvi_mean"] = pd.to_numeric(df["ndvi_mean"], errors="coerce")
+
+    return df[["parcel_id", "observation_date", "ndvi_mean"]]
 
 
 def load_climate_data():
-     file_path = Path("processed_data/era5_alentejo_structured.csv")
+    file_path = Path("processed_data/era5_alentejo_structured.csv")
     if not file_path.exists():
         raise FileNotFoundError("Climate (ERA5) processed file not found.")
-    return pd.read_csv(file_path)
+
+    df = pd.read_csv(file_path)
+
+    df["observation_time"] = pd.to_datetime(df["observation_time"], errors="coerce")
+    df["air_temperature_c"] = pd.to_numeric(df["air_temperature_c"], errors="coerce")
+    df["precipitation_m"] = pd.to_numeric(df["precipitation_m"], errors="coerce")
+
+    return df[[
+        "parcel_id",
+        "observation_time",
+        "air_temperature_c",
+        "precipitation_m"
+    ]]
 
 
 def load_dms_exports():
-       parcels_file = Path("original_data/parcel.csv")
+    parcels_file = Path("original_data/parcel.csv")
     if not parcels_file.exists():
         raise FileNotFoundError("Parcel table not found.")
+
     return {
         "parcels": pd.read_csv(parcels_file)
     }
+
 
 # ========================
 # Validation functions
 # ========================
 
 def validate_ndvi_data(ndvi_data):
-    required_columns = {"parcel_id", "date", "ndvi"}
-
-    if not required_columns.issubset(ndvi_data.columns):
+    required = {"parcel_id", "observation_date", "ndvi_mean"}
+    if not required.issubset(ndvi_data.columns):
         raise ValueError("NDVI missing required columns.")
 
-    if ndvi_data["ndvi"].isnull().any():
-        raise ValueError("NDVI column contains null values.")
+    if ndvi_data.isnull().any().any():
+        raise ValueError("NDVI data contains null values.")
 
-    if (ndvi_data["ndvi"] < -1).any() or (ndvi_data["ndvi"] > 1).any():
+    if (ndvi_data["ndvi_mean"] < -1).any() or (ndvi_data["ndvi_mean"] > 1).any():
         raise ValueError("NDVI values outside [-1, 1].")
 
 
 def validate_climate_data(climate_data):
-    required_columns = {"date", "temperature", "precipitation"}
+    required = {
+        "parcel_id",
+        "observation_time",
+        "air_temperature_c",
+        "precipitation_m"
+    }
 
-    if not required_columns.issubset(climate_data.columns):
+    if not required.issubset(climate_data.columns):
         raise ValueError("Climate data missing required columns.")
 
-    if climate_data.isnull().any().any():
-        raise ValueError("Climate data contains null values.")
+    # Critical fields must not be null
+    if climate_data["parcel_id"].isnull().any():
+        raise ValueError("Climate data contains null parcel_id.")
 
-    if (climate_data["temperature"] < -30).any() or (climate_data["temperature"] > 60).any():
+    if climate_data["observation_time"].isnull().any():
+        raise ValueError("Climate data contains null observation_time.")
+
+    # Climate variables may have gaps (acceptable in ERA5)
+    temp = climate_data["air_temperature_c"]
+    prec = climate_data["precipitation_m"]
+
+    if temp.dropna().lt(-30).any() or temp.dropna().gt(60).any():
         raise ValueError("Temperature outside plausible range.")
 
-    if (climate_data["precipitation"] < 0).any():
+    if prec.dropna().lt(0).any():
         raise ValueError("Negative precipitation detected.")
 
 
 def validate_dms_data(dms_data):
     parcels = dms_data["parcels"]
 
-    if "parcel_id" not in parcels.columns:
-        raise ValueError("parcels table missing parcel_id.")
+    if "id" not in parcels.columns:
+        raise ValueError("parcels table missing id column.")
 
-    if parcels["parcel_id"].duplicated().any():
-        raise ValueError("Duplicate parcel_id detected.")
+    if parcels["id"].isnull().any():
+        raise ValueError("parcels table contains null id values.")
 
+    if parcels["id"].duplicated().any():
+        raise ValueError("Duplicate parcel ids detected.")
 
 def validate_integration(integrated_data):
     if integrated_data.empty:
         raise ValueError("Integrated dataset is empty.")
 
-    required = {"parcel_id", "date", "ndvi", "temperature", "precipitation"}
-    if not required.issubset(integrated_data.columns):
-        raise ValueError("Integrated data missing required columns.")
-
-    if integrated_data.duplicated(subset=["parcel_id", "date"]).any():
-        raise ValueError("Duplicate parcel_id-date combinations.")
+    if integrated_data.duplicated(
+        subset=["parcel_id", "observation_date"]
+    ).any():
+        raise ValueError("Duplicate parcel-date combinations.")
 
     return integrated_data
 
@@ -120,12 +152,15 @@ def validate_integration(integrated_data):
 # ========================
 
 def integrate_data(ndvi_data, climate_data, dms_data):
-    ndvi_data["date"] = pd.to_datetime(ndvi_data["date"])
-    climate_data["date"] = pd.to_datetime(climate_data["date"])
+    merged = pd.merge(
+        ndvi_data,
+        climate_data,
+        left_on=["parcel_id", "observation_date"],
+        right_on=["parcel_id", "observation_time"],
+        how="left"
+    )
 
-    merged = pd.merge(ndvi_data, climate_data, on="date", how="left")
-
-    valid_parcels = dms_data["parcels"]["parcel_id"].unique()
+    valid_parcels = dms_data["parcels"]["id"].unique()
     return merged[merged["parcel_id"].isin(valid_parcels)]
 
 
@@ -140,11 +175,11 @@ class VineyardParcel:
         self.climate_series = climate_series
 
     def compute_vigor(self):
-        return self.ndvi_series["ndvi"].mean()
+        return self.ndvi_series["ndvi_mean"].mean()
 
     def compute_water_stress(self):
-        mean_ndvi = self.ndvi_series["ndvi"].mean()
-        mean_temp = self.climate_series["temperature"].mean()
+        mean_ndvi = self.ndvi_series["ndvi_mean"].mean()
+        mean_temp = self.climate_series["air_temperature_c"].mean()
         return (1 - mean_ndvi) * (mean_temp / 30)
 
     def classify_status(self):
@@ -166,8 +201,12 @@ def build_parcels(validated_data):
         parcels.append(
             VineyardParcel(
                 pid,
-                group[["date", "ndvi"]],
-                group[["date", "temperature", "precipitation"]],
+                group[["observation_date", "ndvi_mean"]],
+                group[[
+                    "observation_time",
+                    "air_temperature_c",
+                    "precipitation_m"
+                ]],
             )
         )
     return parcels
