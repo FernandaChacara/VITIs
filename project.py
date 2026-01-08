@@ -37,28 +37,26 @@ def main():
 # ========================
 
 def load_ndvi_data():
-    file_path = Path("data/ndvi/ndvi_sample.csv")
+    file_path = Path("processed_data/ndvi_alentejo_2023_structured.csv")
     if not file_path.exists():
-        raise FileNotFoundError("NDVI data file not found.")
+        raise FileNotFoundError("NDVI processed file not found.")
     return pd.read_csv(file_path)
 
 
 def load_climate_data():
-    file_path = Path("data/climate/climate_sample.csv")
+     file_path = Path("processed_data/era5_alentejo_structured.csv")
     if not file_path.exists():
-        raise FileNotFoundError("Climate data file not found.")
+        raise FileNotFoundError("Climate (ERA5) processed file not found.")
     return pd.read_csv(file_path)
 
 
 def load_dms_exports():
-    base_path = Path("data/dms")
-    parcels_file = base_path / "parcels.csv"
-
+       parcels_file = Path("original_data/parcel.csv")
     if not parcels_file.exists():
-        raise FileNotFoundError("DMS parcels export file not found.")
-
-    return {"parcels": pd.read_csv(parcels_file)}
-
+        raise FileNotFoundError("Parcel table not found.")
+    return {
+        "parcels": pd.read_csv(parcels_file)
+    }
 
 # ========================
 # Validation functions
