@@ -1,0 +1,31 @@
+parcel_id,mean_ndvi,water_stress,forecast_7d,stress_level,confidence,recommendation,parcel_name
+1,0.408,0.414,0.464,medium,1.0,MONITOR CONDITIONS,Herdade da Rocha
+2,0.634,0.139,0.189,low,1.0,NO ACTION REQUIRED,Quinta dos Barreiros
+3,0.513,0.163,0.213,low,1.0,NO ACTION REQUIRED,Herdade do Sobreiro
+4,0.525,0.224,0.274,low,1.0,NO ACTION REQUIRED,Quinta da Planície
+5,0.425,0.222,0.272,low,1.0,NO ACTION REQUIRED,Quinta das Oliveiras
+6,0.394,0.433,0.483,medium,1.0,MONITOR CONDITIONS,Herdade do Vale Seco
+7,0.369,0.447,0.497,medium,1.0,MONITOR CONDITIONS,Quinta do Serro Alto
+8,0.346,0.454,0.504,medium,1.0,MONITOR CONDITIONS,Herdade da Fonte Fria
+9,0.269,0.638,0.688,high,1.0,SCHEDULE IRRIGATION,Quinta da Encosta Dourada
+10,0.243,0.499,0.549,medium,1.0,MONITOR CONDITIONS,Herdade dos Ventos
+11,0.228,0.669,0.719,high,1.0,SCHEDULE IRRIGATION,Quinta do Lago Branco
+12,0.21,0.675,0.725,high,1.0,SCHEDULE IRRIGATION,Herdade das Figueiras
+13,0.187,0.638,0.688,high,1.0,SCHEDULE IRRIGATION,Quinta do Ribeiro Claro
+14,0.172,0.686,0.736,high,1.0,SCHEDULE IRRIGATION,Herdade da Terra Forte
+15,0.161,0.642,0.692,high,1.0,SCHEDULE IRRIGATION,Quinta do Pôr do Sol
+16,0.136,1.012,1.062,high,1.0,SCHEDULE IRRIGATION,Herdade da Colina Verde
+17,0.146,1.026,1.076,high,1.0,SCHEDULE IRRIGATION,Quinta do Monte Calmo
+18,0.134,1.006,1.056,high,1.0,SCHEDULE IRRIGATION,Herdade da Charneca
+19,0.131,0.963,1.013,high,1.0,SCHEDULE IRRIGATION,Quinta do Alto Cedro
+20,0.123,0.927,0.977,high,1.0,SCHEDULE IRRIGATION,Herdade do Horizonte
+21,0.136,0.847,0.897,high,1.0,SCHEDULE IRRIGATION,Quinta da Vinha Nova
+22,0.132,1.114,1.164,high,1.0,SCHEDULE IRRIGATION,Herdade da Estrela
+23,0.138,1.014,1.064,high,1.0,SCHEDULE IRRIGATION,Herdade do Carvalho Velho
+24,0.153,0.851,0.901,high,1.0,SCHEDULE IRRIGATION,Quinta da Pedra Branca
+25,0.123,1.099,1.149,high,1.0,SCHEDULE IRRIGATION,Herdade do Chaparral
+26,0.139,0.741,0.791,high,1.0,SCHEDULE IRRIGATION,Quinta do Miradouro
+27,0.133,0.875,0.925,high,1.0,SCHEDULE IRRIGATION,Herdade do Alvor
+28,0.177,0.804,0.854,high,1.0,SCHEDULE IRRIGATION,Quinta da Azinheira
+29,0.178,0.931,0.981,high,1.0,SCHEDULE IRRIGATION,Herdade do Céu Aberto
+30,0.166,0.921,0.971,high,1.0,SCHEDULE IRRIGATION,Quinta da Lezíria

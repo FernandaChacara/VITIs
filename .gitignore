@@ -34,8 +34,5 @@ original_data/*.nc
 # MySQL / MariaDB dumps (optional)
 *.sql.bak
 
-# Outputs gerados automaticamente
-outputs/
-
 # Lock files (LibreOffice / Excel)
 .~lock.*
