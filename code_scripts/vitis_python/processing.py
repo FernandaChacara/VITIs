@@ -9,32 +9,34 @@ def build_parcels(df):
     return [VineyardParcel(pid, g) for pid, g in df.groupby("parcel_id")]
 
 
-def process_parcels(parcels):
+import pandas as pd
+
+
+def process_parcels(vineyard_parcels):
+    """
+    Process VineyardParcel objects and return DSS indicators per parcel,
+    including short-term forecast.
+    """
+
     records = []
 
-    for p in parcels:
-        ws = p.compute_water_stress()
-        forecast = p.forecast_7d()
-        status = p.classify_status(ws)
+    for parcel in vineyard_parcels:
+        ndvi_mean = parcel.compute_vigor()
+        water_stress = parcel.compute_water_stress()
 
-        decision = (
-            "NO ACTION REQUIRED"
-            if status == "low"
-            else "MONITOR CONDITIONS"
-            if status == "medium"
-            else "SCHEDULE IRRIGATION"
-        )
+        if water_stress is None:
+            status = None
+            forecast_7d = None
+        else:
+            status = parcel.classify_status(water_stress)
+            forecast_7d = parcel.forecast_7d()
 
-        records.append(
-            {
-                "parcel_id": p.parcel_id,
-                "mean_ndvi": round(p.compute_vigor(), 3),
-                "water_stress": round(ws, 3),
-                "forecast_7d": round(forecast, 3),
-                "stress_level": status,
-                "confidence": 1.0,
-                "recommendation": decision,
-            }
-        )
+        records.append({
+            "parcel_id": parcel.parcel_id,
+            "ndvi_mean": ndvi_mean,
+            "water_stress": water_stress,
+            "forecast_7d": forecast_7d,
+            "status": status
+        })
 
-    return pd.DataFrame(records)
+    return pd.DataFrame.from_records(records)
