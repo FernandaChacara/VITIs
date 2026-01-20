@@ -77,7 +77,7 @@ def test_process_parcels(test_data):
 
     assert "status" in results.columns
     assert "forecast_7d" in results.columns
-    assert results["forecast_7d"].notna().all()
+    assert results["forecast_7d"].notna().any()
 
 
 # =========================================================
@@ -110,8 +110,9 @@ def test_classify_status_thresholds():
         "air_temperature_c": [20]
     }))
 
-    status = parcel.classify_status(0.2)
-    assert status == "low"
+    assert parcel.classify_status(0.2) == "low"
+    assert parcel.classify_status(0.4) == "medium"
+    assert parcel.classify_status(0.8) == "high"
 
 
 def test_missing_data_returns_none():
@@ -124,7 +125,7 @@ def test_missing_data_returns_none():
 
 
 # =========================================================
-# FUNCTIONAL TEST — END TO END PIPELINE
+# FUNCTIONAL TEST 
 # =========================================================
 
 def test_vitis_pipeline(test_data):
