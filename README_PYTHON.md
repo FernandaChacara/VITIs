@@ -17,7 +17,6 @@ The system focuses on:
 - Generation of analytical outputs and visualizations
 - Automated testing using pytest
 
-
 ---
 
 ## 2. Data and Problem Description
@@ -37,18 +36,14 @@ The output is a set of indicators that quantify current and short-term projected
 ## 3. Project Structure
 
 VITIS/
-│
-├── project.py # Main application and core logic
-├── test_project.py # Automated tests (pytest)
-├── requirements.txt # Project dependencies
-├── README.md # Project documentation
-│
-├── processed_data/ # Pre-processed NDVI and climate data
-├── original_data/ # Parcel metadata
-├── outputs/ # Generated results and visualizations
-└── notebooks/ # Exploratory analysis 
-
-
+- project.py # Main application and core logic
+- test_project.py # Automated tests (pytest)
+- requirements.txt # Project dependencies
+- README.md # Project documentation
+- processed_data/ # Pre-processed NDVI and climate data
+- original_data/ # Parcel metadata
+- outputs/ # Generated results and visualizations
+- notebooks/ # Exploratory analysis 
 ---
 
 ## 4. Code Description
@@ -120,7 +115,9 @@ This will:
 - Compute water stress indicators  
 - Generate output files in the `outputs/` directory  
 
-The application runs without requiring manual user input.
+The application runs automatically without requiring manual user input for the core DSS pipeline.  
+Optionally, a command-line interface is available, allowing the user to interactively analyze individual vineyard parcels if desired.
+
 
 ---
 ## 6. Testing
