@@ -8,16 +8,328 @@ Decision Support System (DSS)
 import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
-from code_scripts.vitis_python.data import load_ndvi_data, load_climate_data, load_parcel_data
-from code_scripts.vitis_python.validation import validate_climate_data, validate_ndvi_data, validate_parcel_data
-from code_scripts.vitis_python.integration import integrate_data
-from code_scripts.vitis_python.processing import build_parcels, process_parcels
-from code_scripts.vitis_python.alerts_maps import generate_alert, generate_spatial_risk_map
 
 OUTPUT_DIR = Path("outputs")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
+# =========================================================
+# Paths
+# =========================================================
 
+NDVI_PATH = "processed_data/ndvi_alentejo_2023_structured.csv"
+CLIMATE_PATH = "processed_data/era5_alentejo_structured.csv"
+PARCEL_PATH = "original_data/parcel.csv"
+
+# =========================================================
+# Data loading
+# =========================================================
+
+def load_ndvi_data():
+    return pd.read_csv(
+        NDVI_PATH,
+        parse_dates=["observation_date"]
+    )
+
+
+def load_climate_data():
+    df = pd.read_csv(
+        CLIMATE_PATH,
+        parse_dates=["observation_time"]
+    )
+
+    df["air_temperature_c"] = pd.to_numeric(
+        df["air_temperature_c"], errors="coerce"
+    )
+    df["precipitation_m"] = pd.to_numeric(
+        df["precipitation_m"], errors="coerce"
+    )
+
+    df["date"] = df["observation_time"].dt.date
+
+    return (
+        df.groupby(["parcel_id", "date"], as_index=False)
+        .agg(
+            air_temperature_c=("air_temperature_c", "mean"),
+            precipitation_m=("precipitation_m", "sum"),
+        )
+    )
+
+
+def load_parcel_data():
+    return pd.read_csv(PARCEL_PATH)
+
+# =========================================================
+# Validation
+# =========================================================
+
+def validate_ndvi_data(df):
+    if not {"parcel_id", "observation_date", "ndvi_mean"}.issubset(df.columns):
+        raise ValueError("NDVI missing required columns.")
+
+
+def validate_climate_data(df):
+    if not {"parcel_id", "date", "air_temperature_c", "precipitation_m"}.issubset(df.columns):
+        raise ValueError("Climate data missing required columns.")
+
+    df.loc[df["air_temperature_c"] < -30, "air_temperature_c"] = pd.NA
+    df.loc[df["air_temperature_c"] > 60, "air_temperature_c"] = pd.NA
+    df.loc[df["precipitation_m"] < 0, "precipitation_m"] = pd.NA
+
+
+def validate_parcel_data(df):
+    if "id" not in df.columns:
+        raise ValueError("Parcel table missing id column.")
+
+# =========================================================
+# Integration
+# =========================================================
+
+def integrate_data(ndvi, climate, parcels):
+    """
+    Integrate NDVI, climate, and parcel datasets.
+    Supports both real and synthetic schemas.
+    """
+
+    ndvi = ndvi.copy()
+    climate = climate.copy()
+    parcels = parcels.copy()
+
+    # --- NDVI date handling ---
+    if "observation_date" in ndvi.columns:
+        ndvi["date"] = pd.to_datetime(ndvi["observation_date"], errors="coerce")
+    elif "date" in ndvi.columns:
+        ndvi["date"] = pd.to_datetime(ndvi["date"], errors="coerce")
+    else:
+        raise KeyError(
+            "NDVI dataset must contain 'observation_date' or 'date' column"
+        )
+
+    # --- Climate date handling ---
+    if "date" in climate.columns:
+        climate["date"] = pd.to_datetime(climate["date"], errors="coerce")
+    else:
+        raise KeyError("Climate dataset must contain 'date' column")
+
+    # --- Merge NDVI + climate ---
+    merged = ndvi.merge(
+        climate,
+        on=["parcel_id", "date"],
+        how="left"
+    )
+
+    # --- Attach parcel metadata ---
+    merged = merged.merge(
+        parcels,
+        left_on="parcel_id",
+        right_on="id",
+        how="left"
+    )
+
+    return merged
+
+# =========================================================
+# Processing
+# =========================================================
+
+def build_parcels(df):
+    return [VineyardParcel(pid, g) for pid, g in df.groupby("parcel_id")]
+
+
+def process_parcels(vineyard_parcels):
+    """
+    Process VineyardParcel objects and return DSS indicators per parcel,
+    including short-term forecast.
+    """
+
+    records = []
+
+    for parcel in vineyard_parcels:
+        ndvi_mean = parcel.compute_vigor()
+        water_stress = parcel.compute_water_stress()
+
+        if water_stress is None:
+            status = None
+            forecast_7d = None
+        else:
+            status = parcel.classify_status(water_stress)
+            forecast_7d = parcel.forecast_7d()
+
+        records.append({
+            "parcel_id": parcel.parcel_id,
+            "ndvi_mean": ndvi_mean,
+            "water_stress": water_stress,
+            "forecast_7d": forecast_7d,
+            "status": status
+        })
+
+    return pd.DataFrame.from_records(records)
+
+# =========================================================
+# Domain model
+# =========================================================
+
+class VineyardParcel:
+    def __init__(self, parcel_id, df):
+        self.parcel_id = parcel_id
+        self.df = df
+
+    def compute_vigor(self):
+        return self.df["ndvi_mean"].mean()
+
+    def compute_water_stress(self):
+        ndvi = self.df["ndvi_mean"].mean()
+        temp = self.df["air_temperature_c"].mean()
+
+        if pd.isna(ndvi) or pd.isna(temp):
+            return None
+
+        return (1 - ndvi) * (temp / 30)
+
+    def forecast_7d(self):
+        ws = self.compute_water_stress()
+        if ws is None:
+            return None
+        return min(ws + 0.05, 1.2)
+
+    def classify_status(self, ws):
+        if ws < 0.3:
+            return "low"
+        elif ws < 0.6:
+            return "medium"
+        return "high"
+    
+    # =========================================================
+# Alert report (Markdown + graph)
+# =========================================================
+
+def generate_alert(parcel_row):
+    pid = parcel_row["parcel_id"]
+    pname = parcel_row["parcel_name"]
+
+    fig, ax = plt.subplots(figsize=(5, 3))
+    ax.bar(
+        ["Current", "7-day forecast"],
+        [parcel_row["water_stress"], parcel_row["forecast_7d"]],
+        color=["orange", "red"],
+    )
+    ax.set_ylabel("Water Stress Index")
+    ax.set_title(f"Parcel {pid} — Stress Outlook")
+
+    img_path = OUTPUT_DIR / f"parcel_{pid}_stress.png"
+    plt.tight_layout()
+    plt.savefig(img_path, dpi=200)
+    plt.close()
+
+    # --- Derived / mapped fields (semantic alignment) ---
+    mean_ndvi = parcel_row["ndvi_mean"]
+    stress_level = parcel_row["status"]
+
+    recommendation_map = {
+        "low": "No irrigation required. Continue monitoring.",
+        "medium": "Consider moderate irrigation in the next days.",
+        "high": "Irrigation recommended as soon as possible."
+    }
+
+    recommendation = recommendation_map.get(
+        stress_level, "Insufficient data for recommendation."
+    )
+
+    confidence_map = {
+        "low": 0.85,
+        "medium": 0.75,
+        "high": 0.65
+    }
+
+    confidence = confidence_map.get(stress_level, 0.5)
+
+    md = f"""# VITIS — Decision Support Alert
+
+## Vineyard Parcel Assessment
+
+**Parcel ID:** {pid}  
+**Parcel Name:** {pname}
+
+---
+
+## 1. Vegetative Condition
+- **Mean NDVI:** {mean_ndvi:.3f}
+
+---
+
+## 2. Water Stress Assessment
+- **Current Water Stress Index:** {parcel_row['water_stress']:.3f}
+- **7-day Forecast Water Stress Index:** {parcel_row['forecast_7d']:.3f}
+- **Stress Classification:** {stress_level}
+
+---
+
+## 3. Decision Support Recommendation
+**{recommendation}**
+
+---
+
+## 4. Model Confidence
+- **Decision confidence score:** {confidence:.2f}
+
+---
+
+## 5. Stress Outlook Visualization
+![Water stress forecast](parcel_{pid}_stress.png)
+
+---
+
+*Automatically generated by the VITIS Decision Support System.*
+"""
+
+    out_path = OUTPUT_DIR / f"parcel_{pid}_alert.md"
+    out_path.write_text(md, encoding="utf-8")
+
+# =========================================================
+# Spatial risk map 
+# =========================================================
+
+def generate_spatial_risk_map(results_df, parcels_df):
+    df = results_df.merge(
+        parcels_df,
+        left_on="parcel_id",
+        right_on="id",
+        how="left"
+    )
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    scatter = ax.scatter(
+        df["longitude"],
+        df["latitude"],
+        c=df["water_stress"],
+        cmap="RdYlGn_r",
+        s=120,
+        edgecolor="black"
+    )
+
+    for _, row in df.iterrows():
+        ax.text(
+            row["longitude"],
+            row["latitude"],
+            str(int(row["parcel_id"])),
+            fontsize=8,
+            ha="center",
+            va="center",
+            color="black",
+            weight="bold"
+        )
+
+    ax.set_title("VITIS — Spatial Water Stress Risk Map")
+    ax.set_xlabel("Longitude")
+    ax.set_ylabel("Latitude")
+
+    cbar = plt.colorbar(scatter, ax=ax)
+    cbar.set_label("Water Stress Index")
+
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "vitis_risk_map.png", dpi=300)
+    plt.close()
+    
 # =========================================================
 # CLI
 # =========================================================
@@ -82,5 +394,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

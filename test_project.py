@@ -3,6 +3,7 @@ VITIS — Tests
 Introduction to Python | MSc Green Data Science | ISA
 """
 
+import pytest
 import pandas as pd
 
 from project import (
@@ -12,8 +13,14 @@ from project import (
     VineyardParcel
 )
 
+# =========================================================
+# FIXTURES
+# =========================================================
 
-def create_test_data():
+@pytest.fixture
+def test_data():
+    """Synthetic and deterministic test data for VITIS pipeline."""
+
     dates = pd.to_datetime([
         "2024-07-01", "2024-07-02",
         "2024-07-01", "2024-07-02"
@@ -22,7 +29,7 @@ def create_test_data():
     ndvi = pd.DataFrame({
         "parcel_id": [1, 1, 2, 2],
         "date": dates,
-        "ndvi_mean": [0.7, 0.68, 0.45, 0.43]
+        "ndvi_mean": [0.70, 0.68, 0.45, 0.43]
     })
 
     climate = pd.DataFrame({
@@ -40,48 +47,99 @@ def create_test_data():
 
 
 # =========================================================
-# REQUIRED TESTS 
+# UNIT TESTS — CORE FUNCTIONS
 # =========================================================
 
-def test_integrate_data():
-    ndvi, climate, parcels = create_test_data()
+def test_integrate_data(test_data):
+    ndvi, climate, parcels = test_data
     integrated = integrate_data(ndvi, climate, parcels)
 
     assert not integrated.empty
-    assert "parcel_id" in integrated.columns
+    assert set(["parcel_id", "ndvi_mean", "air_temperature_c"]).issubset(
+        integrated.columns
+    )
 
 
-def test_build_parcels():
-    ndvi, climate, parcels = create_test_data()
+def test_build_parcels(test_data):
+    ndvi, climate, parcels = test_data
     integrated = integrate_data(ndvi, climate, parcels)
     vineyard_parcels = build_parcels(integrated)
 
     assert len(vineyard_parcels) == 2
-    assert isinstance(vineyard_parcels[0], VineyardParcel)
+    assert all(isinstance(p, VineyardParcel) for p in vineyard_parcels)
 
 
-def test_process_parcels():
-    ndvi, climate, parcels = create_test_data()
+def test_process_parcels(test_data):
+    ndvi, climate, parcels = test_data
     integrated = integrate_data(ndvi, climate, parcels)
     vineyard_parcels = build_parcels(integrated)
     results = process_parcels(vineyard_parcels)
 
+    assert "status" in results.columns
     assert "forecast_7d" in results.columns
     assert results["forecast_7d"].notna().all()
 
 
 # =========================================================
-# FUNCTIONAL TEST 
+# UNIT TESTS — DOMAIN MODEL (CLASS METHODS)
 # =========================================================
 
-def test_vitis_pipeline():
-    ndvi, climate, parcels = create_test_data()
+def test_compute_vigor(test_data):
+    ndvi, climate, parcels = test_data
+    integrated = integrate_data(ndvi, climate, parcels)
+    parcel = build_parcels(integrated)[0]
+
+    vigor = parcel.compute_vigor()
+    assert 0 < vigor < 1
+
+
+def test_compute_water_stress_sensitivity(test_data):
+    ndvi, climate, parcels = test_data
+    integrated = integrate_data(ndvi, climate, parcels)
+    vineyard_parcels = build_parcels(integrated)
+
+    ws_low = vineyard_parcels[0].compute_water_stress()
+    ws_high = vineyard_parcels[1].compute_water_stress()
+
+    assert ws_high > ws_low
+
+
+def test_classify_status_thresholds():
+    parcel = VineyardParcel(1, pd.DataFrame({
+        "ndvi_mean": [0.9],
+        "air_temperature_c": [20]
+    }))
+
+    status = parcel.classify_status(0.2)
+    assert status == "low"
+
+
+def test_missing_data_returns_none():
+    parcel = VineyardParcel(1, pd.DataFrame({
+        "ndvi_mean": [pd.NA],
+        "air_temperature_c": [30]
+    }))
+
+    assert parcel.compute_water_stress() is None
+
+
+# =========================================================
+# FUNCTIONAL TEST — END TO END PIPELINE
+# =========================================================
+
+def test_vitis_pipeline(test_data):
+    ndvi, climate, parcels = test_data
     integrated = integrate_data(ndvi, climate, parcels)
     vineyard_parcels = build_parcels(integrated)
     results = process_parcels(vineyard_parcels)
 
-    stress_p1 = results.loc[results["parcel_id"] == 1, "water_stress"].values[0]
-    stress_p2 = results.loc[results["parcel_id"] == 2, "water_stress"].values[0]
+    stress_p1 = results.loc[
+        results["parcel_id"] == 1, "water_stress"
+    ].values[0]
+
+    stress_p2 = results.loc[
+        results["parcel_id"] == 2, "water_stress"
+    ].values[0]
 
     assert stress_p2 > stress_p1
-
+    print("VITIS end-to-end pipeline test passed successfully.")
