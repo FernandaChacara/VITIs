@@ -143,4 +143,3 @@ def test_vitis_pipeline(test_data):
     ].values[0]
 
     assert stress_p2 > stress_p1
-    print("VITIS end-to-end pipeline test passed successfully.")
