@@ -167,10 +167,22 @@ Modules from the Python standard library are intentionally excluded from `requir
 
 ---
 
-## 8. Conclusion
+## 8. Improvements and Future Work
 
-VITIS demonstrates how Python can be used to build a modular, testable, and domain-driven decision support system for environmental and agricultural applications.  
-The project integrates data science principles, object-oriented programming, and automated testing, fulfilling and exceeding the requirements of the course assignment.
+Future developments of VITIS could include:
+
+Integration of additional climate variables (e.g., precipitation, evapotranspiration)
+
+Inclusion of spatial data layers and GIS-based analysis
+
+Export of comprehensive reports (e.g., PDF summaries)
+
+Development of a user-facing interface for vineyard managers
+
+## 9. Potential Issues
+
+The current implementation assumes that all input data files are available and correctly formatted.
+Further validation layers could be implemented to improve robustness when dealing with heterogeneous or incomplete datasets.
 
 ---
 
