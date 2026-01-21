@@ -39,11 +39,13 @@ VITIS/
 - project.py # Main application and core logic
 - test_project.py # Automated tests (pytest)
 - requirements.txt # Project dependencies
-- README.md # Project documentation
+- README_PYTHON.md # Project documentation
+- code_scripts/python_codes/ # Data loading, validation and alert functions
 - processed_data/ # Pre-processed NDVI and climate data
 - original_data/ # Parcel metadata
 - outputs/ # Generated results and visualizations
 - notebooks/ # Exploratory analysis 
+
 ---
 
 ## 4. Code Description
@@ -102,13 +104,14 @@ From the project root, install the required packages:
 ```bash
 pip install -r requirements.txt
 ```
-## 5.2 Run the Application
+
+### 5.2 Run the Application
 
 Execute the main script with:
 
 ```bash
 python project.py
-````
+```
 This will:
 
 - Load and validate the data  
@@ -168,13 +171,10 @@ Modules from the Python standard library are intentionally excluded from `requir
 
 Future developments of VITIS could include:
 
-Integration of additional climate variables (e.g., precipitation, evapotranspiration)
-
-Inclusion of spatial data layers and GIS-based analysis
-
-Export of comprehensive reports (e.g., PDF summaries)
-
-Development of a user-facing interface for vineyard managers
+- Integration of additional climate variables (e.g., precipitation, evapotranspiration)
+- Inclusion of spatial data layers and GIS-based analysis
+- Export of comprehensive reports (e.g., PDF summaries)
+- Development of a user-facing interface for vineyard managers
 
 ## 9. Potential Issues
 
